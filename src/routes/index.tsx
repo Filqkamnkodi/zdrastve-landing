@@ -1,29 +1,503 @@
 import { createFileRoute } from "@tanstack/react-router";
+import {
+  Stethoscope,
+  HeartPulse,
+  Baby,
+  ScanLine,
+  FlaskConical,
+  ShieldCheck,
+  Award,
+  Users,
+  Sparkles,
+  Microscope,
+  MapPin,
+  Phone,
+  Clock,
+  ArrowRight,
+  Star,
+  CalendarCheck,
+  Mail,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Menu,
+} from "lucide-react";
+import heroImg from "@/assets/hero-clinic.jpg";
+import teamImg from "@/assets/team.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "МедиКеър Клиника — Вашето здраве е нашият приоритет" },
+      {
+        name: "description",
+        content:
+          "Професионална медицинска грижа, модерна апаратура и индивидуален подход. Запазете час онлайн в клиника МедиКеър.",
+      },
+      { property: "og:title", content: "МедиКеър Клиника" },
+      {
+        property: "og:description",
+        content:
+          "Професионална медицинска грижа, модерна апаратура и индивидуален подход към всеки пациент.",
+      },
     ],
   }),
-  component: Index,
+  component: LandingPage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const services = [
+  { icon: Stethoscope, title: "Обща медицина", desc: "Прегледи, диагностика и проследяване на цялостното здравословно състояние." },
+  { icon: HeartPulse, title: "Кардиология", desc: "ЕКГ, ехокардиография и грижа за сърдечно-съдовото здраве." },
+  { icon: Baby, title: "Педиатрия", desc: "Внимателна грижа за бебета, деца и юноши от опитни специалисти." },
+  { icon: ScanLine, title: "Образна диагностика", desc: "Модерна апаратура за прецизни ехографии и рентгенови изследвания." },
+  { icon: FlaskConical, title: "Лабораторни изследвания", desc: "Бързи и точни анализи с резултати в кратки срокове." },
+  { icon: ShieldCheck, title: "Профилактични прегледи", desc: "Цялостни пакети за превенция и ранно откриване на заболявания." },
+];
+
+const features = [
+  { icon: Award, title: "Професионализъм", desc: "Екип от висококвалифицирани специалисти." },
+  { icon: Users, title: "Богат опит", desc: "Дългогодишна практика и доказани резултати." },
+  { icon: Sparkles, title: "Комфортна среда", desc: "Спокойна и приятна атмосфера за пациентите." },
+  { icon: Microscope, title: "Модерно оборудване", desc: "Съвременна апаратура за точна диагностика и лечение." },
+];
+
+const locations = [
+  {
+    name: "МедиКеър София",
+    address: "бул. „Витоша" 89, 1408 София",
+    hours: "Пон – Пет: 08:00 – 20:00 · Съб: 09:00 – 14:00",
+    phone: "+359 2 123 4567",
+  },
+  {
+    name: "МедиКеър Пловдив",
+    address: "ул. „Иван Вазов" 12, 4000 Пловдив",
+    hours: "Пон – Пет: 08:00 – 19:00 · Съб: 09:00 – 13:00",
+    phone: "+359 32 654 321",
+  },
+  {
+    name: "МедиКеър Варна",
+    address: "бул. „Княз Борис I" 47, 9000 Варна",
+    hours: "Пон – Пет: 08:00 – 19:00",
+    phone: "+359 52 987 654",
+  },
+];
+
+const testimonials = [
+  { name: "Мария П.", text: "Изключително професионално отношение и отлично обслужване." },
+  { name: "Георги И.", text: "Модерна клиника и много внимателен персонал." },
+  { name: "Елена Д.", text: "Получих бърза и качествена медицинска помощ." },
+  { name: "Николай С.", text: "Прекрасни специалисти и спокойна атмосфера. Препоръчвам!" },
+];
+
+const stats = [
+  { value: "15+", label: "години опит" },
+  { value: "20+", label: "специалисти" },
+  { value: "10 000+", label: "доволни пациенти" },
+  { value: "98%", label: "удовлетвореност" },
+];
+
+function LandingPage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background text-foreground">
+      <Header />
+      <main>
+        <Hero />
+        <Services />
+        <Locations />
+        <WhyUs />
+        <About />
+        <Testimonials />
+        <FinalCTA />
+      </main>
+      <Footer />
     </div>
+  );
+}
+
+function Header() {
+  return (
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-border/60">
+      <div className="container-page flex h-16 items-center justify-between">
+        <a href="#" className="flex items-center gap-2">
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-deep text-primary-foreground">
+            <HeartPulse className="h-5 w-5" />
+          </span>
+          <span className="font-display text-lg font-bold tracking-tight text-primary-deep">
+            МедиКеър
+          </span>
+        </a>
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
+          <a href="#services" className="hover:text-primary-deep transition">Услуги</a>
+          <a href="#locations" className="hover:text-primary-deep transition">Локации</a>
+          <a href="#about" className="hover:text-primary-deep transition">За нас</a>
+          <a href="#testimonials" className="hover:text-primary-deep transition">Отзиви</a>
+          <a href="#contact" className="hover:text-primary-deep transition">Контакти</a>
+        </nav>
+        <div className="flex items-center gap-2">
+          <a href="#cta" className="btn-primary hidden sm:inline-flex !py-2.5 !px-5 text-sm">
+            <CalendarCheck className="h-4 w-4" /> Запази час
+          </a>
+          <button aria-label="Меню" className="md:hidden grid h-10 w-10 place-items-center rounded-full border border-border">
+            <Menu className="h-5 w-5" />
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="relative overflow-hidden">
+      <div
+        className="absolute inset-0 -z-10"
+        style={{
+          background:
+            "radial-gradient(1200px 600px at 80% -10%, color-mix(in oklab, var(--primary-soft) 35%, transparent), transparent 60%), linear-gradient(180deg, var(--surface) 0%, white 100%)",
+        }}
+      />
+      <div className="container-page grid lg:grid-cols-2 gap-12 lg:gap-16 py-16 lg:py-24 items-center">
+        <div className="animate-fade-up">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white border border-border px-3 py-1.5 text-xs font-semibold text-primary-deep shadow-soft">
+            <ShieldCheck className="h-3.5 w-3.5" />
+            Сертифицирана клиника · ISO 9001
+          </span>
+          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-primary-deep">
+            Вашето здраве е нашият приоритет
+          </h1>
+          <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
+            Професионална медицинска грижа, модерна апаратура и индивидуален
+            подход към всеки пациент.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#cta" className="btn-primary">
+              <CalendarCheck className="h-5 w-5" /> Запазете час
+            </a>
+            <a href="#contact" className="btn-ghost">
+              Свържете се с нас <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+          <div className="mt-10 grid grid-cols-3 gap-6 max-w-md">
+            <TrustStat value="15+" label="години опит" />
+            <TrustStat value="10K+" label="пациенти" />
+            <TrustStat value="98%" label="удовлетвореност" />
+          </div>
+        </div>
+
+        <div className="relative">
+          <div className="relative overflow-hidden rounded-[2rem] shadow-glow">
+            <img
+              src={heroImg}
+              alt="Лекар разговаря с пациент в модерна клиника"
+              width={1664}
+              height={1216}
+              className="h-full w-full object-cover aspect-[4/3]"
+            />
+          </div>
+
+          <div className="hidden sm:flex absolute -left-6 bottom-10 card-soft p-4 pr-5 items-center gap-3 animate-float">
+            <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary-soft/30 text-primary-deep">
+              <HeartPulse className="h-5 w-5" />
+            </span>
+            <div>
+              <div className="text-sm font-semibold">Грижа 24/7</div>
+              <div className="text-xs text-muted-foreground">Спешни консултации</div>
+            </div>
+          </div>
+
+          <div className="hidden sm:flex absolute -right-4 top-10 card-soft p-4 pr-5 items-center gap-3 animate-float" style={{ animationDelay: "1s" }}>
+            <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
+              <Award className="h-5 w-5" />
+            </span>
+            <div>
+              <div className="text-sm font-semibold">20+ специалисти</div>
+              <div className="text-xs text-muted-foreground">Сертифициран екип</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TrustStat({ value, label }: { value: string; label: string }) {
+  return (
+    <div>
+      <div className="text-2xl font-bold text-primary-deep font-display">{value}</div>
+      <div className="text-xs text-muted-foreground mt-1">{label}</div>
+    </div>
+  );
+}
+
+function SectionHeader({ eyebrow, title, desc }: { eyebrow: string; title: string; desc?: string }) {
+  return (
+    <div className="max-w-2xl mx-auto text-center">
+      <div className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+        {eyebrow}
+      </div>
+      <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-primary-deep">{title}</h2>
+      {desc && <p className="mt-4 text-muted-foreground leading-relaxed">{desc}</p>}
+    </div>
+  );
+}
+
+function Services() {
+  return (
+    <section id="services" className="py-20 lg:py-28">
+      <div className="container-page">
+        <SectionHeader
+          eyebrow="Нашите услуги"
+          title="Нашите услуги"
+          desc="Пълно портфолио от медицински специалности на едно място, обслужвано от опитни лекари."
+        />
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((s) => (
+            <article key={s.title} className="card-soft p-7 group">
+              <div className="grid h-14 w-14 place-items-center rounded-2xl bg-primary-soft/20 text-primary-deep group-hover:bg-primary-deep group-hover:text-primary-foreground transition-colors">
+                <s.icon className="h-7 w-7" />
+              </div>
+              <h3 className="mt-5 text-xl font-semibold text-primary-deep">{s.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              <a href="#contact" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all">
+                Научете повече <ArrowRight className="h-4 w-4" />
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Locations() {
+  return (
+    <section id="locations" className="py-20 lg:py-28 bg-surface">
+      <div className="container-page">
+        <SectionHeader
+          eyebrow="Локации"
+          title="Нашите локации"
+          desc="Намерете най-близкия до вас клон на МедиКеър."
+        />
+        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {locations.map((loc) => (
+            <article key={loc.name} className="card-soft overflow-hidden">
+              <div
+                className="h-40 w-full"
+                style={{
+                  background:
+                    "linear-gradient(135deg, color-mix(in oklab, var(--primary-soft) 50%, white) 0%, color-mix(in oklab, var(--primary) 40%, white) 100%)",
+                }}
+                aria-hidden
+              >
+                <div className="h-full w-full grid place-items-center text-primary-deep/50">
+                  <MapPin className="h-10 w-10" />
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-primary-deep">{loc.name}</h3>
+                <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+                  <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 shrink-0 text-primary" />{loc.address}</li>
+                  <li className="flex gap-3"><Clock className="h-4 w-4 mt-0.5 shrink-0 text-primary" />{loc.hours}</li>
+                  <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-primary" />{loc.phone}</li>
+                </ul>
+                <button className="btn-ghost mt-6 w-full !py-2.5 text-sm">
+                  Виж на картата <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WhyUs() {
+  return (
+    <section className="py-20 lg:py-28">
+      <div className="container-page">
+        <SectionHeader eyebrow="Предимства" title="Защо да изберете нас" />
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((f) => (
+            <article key={f.title} className="card-soft p-7 text-center">
+              <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary-deep text-primary-foreground shadow-soft">
+                <f.icon className="h-7 w-7" />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-primary-deep">{f.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section id="about" className="py-20 lg:py-28 bg-surface">
+      <div className="container-page grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="relative">
+          <div className="overflow-hidden rounded-[2rem] shadow-card">
+            <img
+              src={teamImg}
+              alt="Екипът на клиника МедиКеър"
+              width={1408}
+              height={1408}
+              loading="lazy"
+              className="h-full w-full object-cover aspect-square"
+            />
+          </div>
+          <div className="hidden md:block absolute -bottom-6 -right-6 card-soft p-5 max-w-[200px]">
+            <div className="text-3xl font-bold text-primary-deep font-display">10K+</div>
+            <div className="text-xs text-muted-foreground mt-1">доволни пациенти през годините</div>
+          </div>
+        </div>
+
+        <div>
+          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">За нас</div>
+          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-primary-deep">
+            Здравна грижа, която поставя пациента в центъра
+          </h2>
+          <p className="mt-5 text-muted-foreground leading-relaxed">
+            Ние сме медицинска клиника, посветена на предоставянето на висококачествени
+            здравни услуги. Нашата мисия е да осигурим професионална грижа, индивидуален
+            подход и комфорт за всеки пациент.
+          </p>
+
+          <div className="mt-8 grid grid-cols-2 gap-5">
+            {stats.map((s) => (
+              <div key={s.label} className="card-soft p-5">
+                <div className="text-2xl font-bold text-primary-deep font-display">{s.value}</div>
+                <div className="text-xs text-muted-foreground mt-1">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Testimonials() {
+  return (
+    <section id="testimonials" className="py-20 lg:py-28">
+      <div className="container-page">
+        <SectionHeader eyebrow="Отзиви" title="Какво казват нашите пациенти" />
+        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.slice(0, 3).map((t) => (
+            <article key={t.name} className="card-soft p-7">
+              <div className="flex gap-0.5 text-primary">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-current" />
+                ))}
+              </div>
+              <p className="mt-4 text-foreground leading-relaxed">"{t.text}"</p>
+              <div className="mt-6 flex items-center gap-3">
+                <div className="grid h-11 w-11 place-items-center rounded-full bg-primary-soft/30 text-primary-deep font-semibold">
+                  {t.name.charAt(0)}
+                </div>
+                <div>
+                  <div className="text-sm font-semibold">{t.name}</div>
+                  <div className="text-xs text-muted-foreground">Пациент</div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FinalCTA() {
+  return (
+    <section id="cta" className="py-20 lg:py-28">
+      <div className="container-page">
+        <div
+          className="relative overflow-hidden rounded-[2rem] px-8 py-16 sm:px-16 sm:py-20 text-center"
+          style={{ background: "var(--gradient-hero)" }}
+        >
+          <div className="absolute inset-0 opacity-20" aria-hidden style={{
+            background: "radial-gradient(600px 300px at 20% 0%, white, transparent), radial-gradient(500px 250px at 90% 100%, white, transparent)"
+          }} />
+          <div className="relative">
+            <h2 className="text-3xl sm:text-5xl font-bold text-primary-foreground">
+              Погрижете се за здравето си още днес
+            </h2>
+            <p className="mt-5 text-primary-foreground/85 max-w-xl mx-auto">
+              Запишете час за консултация с нашите специалисти.
+            </p>
+            <a
+              href="#"
+              className="mt-8 inline-flex items-center gap-2 bg-white text-primary-deep px-7 py-3.5 rounded-full font-semibold hover:bg-surface transition shadow-soft"
+            >
+              <CalendarCheck className="h-5 w-5" /> Запази час
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer id="contact" className="border-t border-border bg-surface">
+      <div className="container-page py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div>
+          <div className="flex items-center gap-2">
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-deep text-primary-foreground">
+              <HeartPulse className="h-5 w-5" />
+            </span>
+            <span className="font-display text-lg font-bold text-primary-deep">МедиКеър</span>
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+            Модерна медицинска клиника, посветена на здравето и комфорта на всеки пациент.
+          </p>
+          <div className="mt-5 flex gap-2">
+            {[Facebook, Instagram, Linkedin].map((Icon, i) => (
+              <a key={i} href="#" aria-label="Социална мрежа" className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted-foreground hover:text-primary-deep hover:border-primary transition">
+                <Icon className="h-4 w-4" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-semibold text-primary-deep">Навигация</h4>
+          <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+            <li><a href="#services" className="hover:text-primary-deep">Услуги</a></li>
+            <li><a href="#locations" className="hover:text-primary-deep">Локации</a></li>
+            <li><a href="#about" className="hover:text-primary-deep">За нас</a></li>
+            <li><a href="#testimonials" className="hover:text-primary-deep">Отзиви</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-semibold text-primary-deep">Контакти</h4>
+          <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+            <li className="flex gap-2"><Phone className="h-4 w-4 mt-0.5 text-primary" /> +359 2 123 4567</li>
+            <li className="flex gap-2"><Mail className="h-4 w-4 mt-0.5 text-primary" /> info@medicare.bg</li>
+            <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary" /> бул. „Витоша" 89, София</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-semibold text-primary-deep">Правна информация</h4>
+          <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+            <li><a href="#" className="hover:text-primary-deep">Политика за поверителност</a></li>
+            <li><a href="#" className="hover:text-primary-deep">GDPR</a></li>
+            <li><a href="#" className="hover:text-primary-deep">Общи условия</a></li>
+          </ul>
+        </div>
+      </div>
+      <div className="border-t border-border">
+        <div className="container-page py-6 flex flex-col sm:flex-row gap-2 items-center justify-between text-xs text-muted-foreground">
+          <div>© {new Date().getFullYear()} МедиКеър Клиника. Всички права запазени.</div>
+          <div>Направено с грижа за вашето здраве.</div>
+        </div>
+      </div>
+    </footer>
   );
 }
