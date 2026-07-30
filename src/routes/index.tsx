@@ -159,8 +159,8 @@ function Hero() {
       />
       <div className="container-page grid lg:grid-cols-2 gap-12 lg:gap-16 py-16 lg:py-24 items-center">
         <div className="animate-fade-up">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-primary-deep">
-            Вашето здраве е нашият приоритет
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-primary-deep whitespace-pre-line">
+            Медицина{"\n"}с човешко лице
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
             Професионална медицинска грижа, модерна апаратура и индивидуален
