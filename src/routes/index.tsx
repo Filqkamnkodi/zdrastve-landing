@@ -241,7 +241,7 @@ function SectionHeader({ eyebrow, title, desc }: { eyebrow: string; title: strin
 
 function Services() {
   return (
-    <section id="services" className="py-20 lg:py-28">
+    <section id="services" className="py-12 lg:py-16">
       <div className="container-page">
         <SectionHeader
           eyebrow="Нашите услуги"
