@@ -4,7 +4,6 @@ import {
   HeartPulse,
   Baby,
   ScanLine,
-  FlaskConical,
   ShieldCheck,
   Award,
   Users,
