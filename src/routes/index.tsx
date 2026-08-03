@@ -4,7 +4,6 @@ import {
   HeartPulse,
   Baby,
   ScanLine,
-  FlaskConical,
   ShieldCheck,
   Award,
   Users,
@@ -51,7 +50,6 @@ const services = [
   { icon: HeartPulse, title: "Кардиология", desc: "ЕКГ, ехокардиография и грижа за сърдечно-съдовото здраве." },
   { icon: Baby, title: "Педиатрия", desc: "Внимателна грижа за бебета, деца и юноши от опитни специалисти." },
   { icon: ScanLine, title: "Образна диагностика", desc: "Модерна апаратура за прецизни ехографии и рентгенови изследвания." },
-  { icon: FlaskConical, title: "Лабораторни изследвания", desc: "Бързи и точни анализи с резултати в кратки срокове." },
 ];
 
 const features = [
