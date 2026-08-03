@@ -91,9 +91,9 @@ const testimonials = [
 ];
 
 const stats = [
-  { value: "15+", label: "години опит" },
+  { value: "25+", label: "години опит" },
   { value: "20+", label: "специалисти" },
-  { value: "10 000+", label: "доволни пациенти" },
+  { value: "15 000+", label: "доволни пациенти" },
   { value: "98%", label: "удовлетвореност" },
 ];
 
@@ -176,8 +176,8 @@ function Hero() {
             </a>
           </div>
           <div className="mt-10 grid grid-cols-3 gap-6 max-w-md">
-            <TrustStat value="15+" label="години опит" />
-            <TrustStat value="10K+" label="пациенти" />
+            <TrustStat value="25+" label="години опит" />
+            <TrustStat value="15K+" label="пациенти" />
             <TrustStat value="98%" label="удовлетвореност" />
           </div>
         </div>
@@ -347,7 +347,7 @@ function About() {
             />
           </div>
           <div className="hidden md:block absolute -bottom-6 -right-6 card-soft p-5 max-w-[200px]">
-            <div className="text-3xl font-bold text-primary-deep font-display">10K+</div>
+            <div className="text-3xl font-bold text-primary-deep font-display">15K+</div>
             <div className="text-xs text-muted-foreground mt-1">доволни пациенти през годините</div>
           </div>
         </div>
