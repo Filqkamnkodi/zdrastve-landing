@@ -146,7 +146,7 @@ function Header() {
           <a href="#services" className="hover:text-primary-deep transition">Услуги</a>
           <a href="#locations" className="hover:text-primary-deep transition">Имунизационен център</a>
           <a href="#about" className="hover:text-primary-deep transition">За нас</a>
-          <a href="#testimonials" className="hover:text-primary-deep transition">Отзиви</a>
+          <a href="#testimonials" className="hover:text-primary-deep transition">ЧЗВ</a>
           <a href="#contact" className="hover:text-primary-deep transition">Контакти</a>
         </nav>
         <div className="flex items-center gap-2">
