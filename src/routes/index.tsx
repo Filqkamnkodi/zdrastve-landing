@@ -117,6 +117,7 @@ function LandingPage() {
       <Header />
       <main>
         <Hero />
+        <PatientRegistration />
         <Services />
         <Locations />
         <WhyUs />
