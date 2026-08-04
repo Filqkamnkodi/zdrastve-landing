@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ZaNasRouteImport } from './routes/za-nas'
 import { Route as ImunizacionenCentarRouteImport } from './routes/imunizacionen-centar'
+import { Route as ChestoZadavaniVaprosiRouteImport } from './routes/chesto-zadavani-vaprosi'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
@@ -23,6 +24,11 @@ const ZaNasRoute = ZaNasRouteImport.update({
 const ImunizacionenCentarRoute = ImunizacionenCentarRouteImport.update({
   id: '/imunizacionen-centar',
   path: '/imunizacionen-centar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChestoZadavaniVaprosiRoute = ChestoZadavaniVaprosiRouteImport.update({
+  id: '/chesto-zadavani-vaprosi',
+  path: '/chesto-zadavani-vaprosi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -43,6 +49,7 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chesto-zadavani-vaprosi': typeof ChestoZadavaniVaprosiRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
   '/za-nas': typeof ZaNasRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/chesto-zadavani-vaprosi': typeof ChestoZadavaniVaprosiRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
   '/za-nas': typeof ZaNasRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/chesto-zadavani-vaprosi': typeof ChestoZadavaniVaprosiRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
   '/za-nas': typeof ZaNasRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -67,6 +76,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/chesto-zadavani-vaprosi'
     | '/imunizacionen-centar'
     | '/za-nas'
     | '/services/$slug'
@@ -74,6 +84,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/chesto-zadavani-vaprosi'
     | '/imunizacionen-centar'
     | '/za-nas'
     | '/services/$slug'
@@ -81,6 +92,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/chesto-zadavani-vaprosi'
     | '/imunizacionen-centar'
     | '/za-nas'
     | '/services/$slug'
@@ -89,6 +101,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChestoZadavaniVaprosiRoute: typeof ChestoZadavaniVaprosiRoute
   ImunizacionenCentarRoute: typeof ImunizacionenCentarRoute
   ZaNasRoute: typeof ZaNasRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
@@ -109,6 +122,13 @@ declare module '@tanstack/react-router' {
       path: '/imunizacionen-centar'
       fullPath: '/imunizacionen-centar'
       preLoaderRoute: typeof ImunizacionenCentarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chesto-zadavani-vaprosi': {
+      id: '/chesto-zadavani-vaprosi'
+      path: '/chesto-zadavani-vaprosi'
+      fullPath: '/chesto-zadavani-vaprosi'
+      preLoaderRoute: typeof ChestoZadavaniVaprosiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -137,6 +157,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChestoZadavaniVaprosiRoute: ChestoZadavaniVaprosiRoute,
   ImunizacionenCentarRoute: ImunizacionenCentarRoute,
   ZaNasRoute: ZaNasRoute,
   ServicesSlugRoute: ServicesSlugRoute,

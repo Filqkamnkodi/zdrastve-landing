@@ -17,7 +17,7 @@ export function SiteHeader() {
           <Link to="/services" className="hover:text-primary-deep transition">Услуги</Link>
           <Link to="/imunizacionen-centar" className="hover:text-primary-deep transition">Имунизационен център</Link>
           <Link to="/za-nas" className="hover:text-primary-deep transition">За нас</Link>
-          <a href="/#testimonials" className="hover:text-primary-deep transition">ЧЗВ</a>
+          <Link to="/chesto-zadavani-vaprosi" className="hover:text-primary-deep transition">ЧЗВ</Link>
           <a href="/#contact" className="hover:text-primary-deep transition">Контакти</a>
         </nav>
         <div className="flex items-center gap-2">
