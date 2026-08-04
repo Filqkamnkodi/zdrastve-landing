@@ -83,9 +83,9 @@ const features = [
 const locations = [
   {
     name: "МедиКеър София",
-    address: 'бул. „Витоша" 89, 1408 София',
-    hours: "Пон – Пет: 08:00 – 20:00 · Съб: 09:00 – 14:00",
-    phone: "+359 2 123 4567",
+    address: 'ул. "Васил Друмев" 17, 1408 София',
+    hours: "Пон–Четв: 8:00 – 16:30\nПетък: 8:00 - 12:30\nСб-Нд: Почивни дни",
+    phone: "+359 886 011 166\n+359 885 646 724",
   },
   {
     name: "МедиКеър Пловдив",
@@ -305,8 +305,8 @@ function Locations() {
                 <h3 className="text-lg font-semibold text-primary-deep">{loc.name}</h3>
                 <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
                   <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 shrink-0 text-primary" />{loc.address}</li>
-                  <li className="flex gap-3"><Clock className="h-4 w-4 mt-0.5 shrink-0 text-primary" />{loc.hours}</li>
-                  <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-primary" />{loc.phone}</li>
+                  <li className="flex gap-3 whitespace-pre-line"><Clock className="h-4 w-4 mt-0.5 shrink-0 text-primary" />{loc.hours}</li>
+                  <li className="flex gap-3 whitespace-pre-line"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-primary" />{loc.phone}</li>
                 </ul>
                 <button className="btn-ghost mt-6 w-full !py-2.5 text-sm">
                   Виж на картата <ArrowRight className="h-4 w-4" />
