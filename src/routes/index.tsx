@@ -201,15 +201,6 @@ function Hero() {
             </div>
           </div>
 
-          <div className="hidden sm:flex absolute -right-4 top-10 card-soft p-4 pr-5 items-center gap-3 animate-float" style={{ animationDelay: "1s" }}>
-            <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
-              <Award className="h-5 w-5" />
-            </span>
-            <div>
-              <div className="text-sm font-semibold">20+ специалисти</div>
-              <div className="text-xs text-muted-foreground">Сертифициран екип</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
