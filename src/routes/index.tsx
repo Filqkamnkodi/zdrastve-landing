@@ -280,7 +280,7 @@ function Locations() {
           title="Нашите локации"
           desc="Намерете най-близкия до вас клон на МедиКеър."
         />
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-14 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {locations.map((loc) => (
             <article key={loc.name} className="card-soft overflow-hidden">
               <div
