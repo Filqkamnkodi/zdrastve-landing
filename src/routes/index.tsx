@@ -488,12 +488,12 @@ function FinalCTA() {
             <p className="mt-5 text-primary-foreground/85 max-w-xl mx-auto">
               Запишете час за консултация с нашите специалисти.
             </p>
-            <a
-              href="#"
+            <Link
+              to="/zapazi-chas"
               className="mt-8 inline-flex items-center gap-2 bg-white text-primary-deep px-7 py-3.5 rounded-full font-semibold hover:bg-surface transition shadow-soft"
             >
               <CalendarCheck className="h-5 w-5" /> Запази час
-            </a>
+            </Link>
           </div>
         </div>
       </div>
