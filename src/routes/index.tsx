@@ -93,12 +93,6 @@ const locations = [
     hours: "Пон–Четв: 8:00 – 16:00\nПетък: 8:00-13:00\nСб-Нд: Почивни дни",
     phone: "+359 896 600 290",
   },
-  {
-    name: "МедиКеър Варна",
-    address: 'бул. „Княз Борис I" 47, 9000 Варна',
-    hours: "Пон – Пет: 08:00 – 19:00",
-    phone: "+359 52 987 654",
-  },
 ];
 
 
@@ -286,7 +280,7 @@ function Locations() {
           title="Нашите локации"
           desc="Намерете най-близкия до вас клон на МедиКеър."
         />
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-14 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {locations.map((loc) => (
             <article key={loc.name} className="card-soft overflow-hidden">
               <div
