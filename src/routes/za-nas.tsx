@@ -52,16 +52,7 @@ const values = [
   },
 ];
 
-const placeholderBio =
-  "Тук ще бъде публикувана подробна информация за биографията, специалностите, образованието и професионалния опит на специалиста.";
 
-const team = [
-  { name: "Д-р Милен Русев Чолаков", image: doctorMale, bio: placeholderBio },
-  { name: "Д-р Тереза Стоева Чолакова", image: doctorFemale, bio: placeholderBio },
-  { name: "Д-р Специалист", image: doctorThird, bio: placeholderBio },
-  { name: "Медицинска сестра", image: nurseOne, bio: placeholderBio },
-  { name: "Медицински специалист", image: nurseTwo, bio: placeholderBio },
-];
 
 function AboutPage() {
   return (
