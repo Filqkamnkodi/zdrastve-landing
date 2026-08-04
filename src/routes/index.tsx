@@ -150,9 +150,9 @@ function Header() {
           <a href="#contact" className="hover:text-primary-deep transition">Контакти</a>
         </nav>
         <div className="flex items-center gap-2">
-          <a href="#cta" className="btn-primary hidden sm:inline-flex !py-2.5 !px-5 text-sm">
+          <Link to="/zapazi-chas" className="btn-primary hidden sm:inline-flex !py-2.5 !px-5 text-sm">
             <CalendarCheck className="h-4 w-4" /> Запази час
-          </a>
+          </Link>
           <button aria-label="Меню" className="md:hidden grid h-10 w-10 place-items-center rounded-full border border-border">
             <Menu className="h-5 w-5" />
           </button>
@@ -183,9 +183,9 @@ function Hero() {
             професионализъм, съчетан с лично отношение.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#cta" className="btn-primary">
+            <Link to="/zapazi-chas" className="btn-primary">
               <CalendarCheck className="h-5 w-5" /> Запазете час
-            </a>
+            </Link>
             <a href="#contact" className="btn-ghost">
               Свържете се с нас <ArrowRight className="h-4 w-4" />
             </a>
