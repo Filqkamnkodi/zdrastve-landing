@@ -556,7 +556,7 @@ function Footer() {
       </div>
       <div className="border-t border-border">
         <div className="container-page py-6 flex flex-col sm:flex-row gap-2 items-center justify-between text-xs text-muted-foreground">
-          <div>© {new Date().getFullYear()} МедиКеър Клиника. Всички права запазени.</div>
+          <div>© {new Date().getFullYear()} Клиника Д-р Чолакови. Всички права запазени.</div>
           <div>Направено с грижа за вашето здраве.</div>
         </div>
       </div>
