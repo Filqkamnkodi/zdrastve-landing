@@ -29,13 +29,13 @@ import teamImg from "@/assets/team.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "МедиКеър Клиника — Вашето здраве е нашият приоритет" },
+      { title: "Клиника Д-р Чолакови — Вашето здраве е нашият приоритет" },
       {
         name: "description",
         content:
-          "Професионална медицинска грижа, модерна апаратура и индивидуален подход. Запазете час онлайн в клиника МедиКеър.",
+          "Професионална медицинска грижа, модерна апаратура и индивидуален подход. Запазете час онлайн в клиника Д-р Чолакови.",
       },
-      { property: "og:title", content: "МедиКеър Клиника" },
+      { property: "og:title", content: "Клиника Д-р Чолакови" },
       {
         property: "og:description",
         content:
@@ -138,8 +138,8 @@ function Header() {
           <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-deep text-primary-foreground">
             <HeartPulse className="h-5 w-5" />
           </span>
-          <span className="font-display text-lg font-bold tracking-tight text-primary-deep">
-            МедиКеър
+          <span className="font-display text-base font-bold tracking-tight text-primary-deep leading-tight whitespace-pre-line">
+            Клиника{"\n"}Д-р Чолакови
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
@@ -401,7 +401,7 @@ function About() {
           <div className="overflow-hidden rounded-[2rem] shadow-card">
             <img
               src={teamImg}
-              alt="Екипът на клиника МедиКеър"
+              alt="Екипът на клиника Д-р Чолакови"
               width={1408}
               height={1408}
               loading="lazy"
@@ -510,7 +510,9 @@ function Footer() {
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-deep text-primary-foreground">
               <HeartPulse className="h-5 w-5" />
             </span>
-            <span className="font-display text-lg font-bold text-primary-deep">МедиКеър</span>
+            <span className="font-display text-base font-bold text-primary-deep whitespace-pre-line leading-tight">
+              Клиника{"\n"}Д-р Чолакови
+            </span>
           </div>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
             Модерна медицинска клиника, посветена на здравето и комфорта на всеки пациент.
@@ -537,9 +539,9 @@ function Footer() {
         <div>
           <h4 className="text-sm font-semibold text-primary-deep">Контакти</h4>
           <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
-            <li className="flex gap-2"><Phone className="h-4 w-4 mt-0.5 text-primary" /> +359 2 123 4567</li>
-            <li className="flex gap-2"><Mail className="h-4 w-4 mt-0.5 text-primary" /> info@medicare.bg</li>
-            <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary" /> бул. „Витоша" 89, София</li>
+            <li className="flex gap-2"><Phone className="h-4 w-4 mt-0.5 text-primary" /> +359 886 011 166</li>
+            <li className="flex gap-2"><Mail className="h-4 w-4 mt-0.5 text-primary" /> contact@cholakoviclinic.bg</li>
+            <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary" /> ул. "Васил Друмев" 17, Шумен</li>
           </ul>
         </div>
 
@@ -554,7 +556,7 @@ function Footer() {
       </div>
       <div className="border-t border-border">
         <div className="container-page py-6 flex flex-col sm:flex-row gap-2 items-center justify-between text-xs text-muted-foreground">
-          <div>© {new Date().getFullYear()} МедиКеър Клиника. Всички права запазени.</div>
+          <div>© {new Date().getFullYear()} Клиника Д-р Чолакови. Всички права запазени.</div>
           <div>Направено с грижа за вашето здраве.</div>
         </div>
       </div>
