@@ -9,11 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ZaNasRouteImport } from './routes/za-nas'
 import { Route as ImunizacionenCentarRouteImport } from './routes/imunizacionen-centar'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
+const ZaNasRoute = ZaNasRouteImport.update({
+  id: '/za-nas',
+  path: '/za-nas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ImunizacionenCentarRoute = ImunizacionenCentarRouteImport.update({
   id: '/imunizacionen-centar',
   path: '/imunizacionen-centar',
@@ -38,12 +44,14 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
+  '/za-nas': typeof ZaNasRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
+  '/za-nas': typeof ZaNasRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -51,18 +59,30 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
+  '/za-nas': typeof ZaNasRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/imunizacionen-centar' | '/services/$slug' | '/services/'
+  fullPaths:
+    | '/'
+    | '/imunizacionen-centar'
+    | '/za-nas'
+    | '/services/$slug'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/imunizacionen-centar' | '/services/$slug' | '/services'
+  to:
+    | '/'
+    | '/imunizacionen-centar'
+    | '/za-nas'
+    | '/services/$slug'
+    | '/services'
   id:
     | '__root__'
     | '/'
     | '/imunizacionen-centar'
+    | '/za-nas'
     | '/services/$slug'
     | '/services/'
   fileRoutesById: FileRoutesById
@@ -70,12 +90,20 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ImunizacionenCentarRoute: typeof ImunizacionenCentarRoute
+  ZaNasRoute: typeof ZaNasRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/za-nas': {
+      id: '/za-nas'
+      path: '/za-nas'
+      fullPath: '/za-nas'
+      preLoaderRoute: typeof ZaNasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/imunizacionen-centar': {
       id: '/imunizacionen-centar'
       path: '/imunizacionen-centar'
@@ -110,6 +138,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ImunizacionenCentarRoute: ImunizacionenCentarRoute,
+  ZaNasRoute: ZaNasRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }

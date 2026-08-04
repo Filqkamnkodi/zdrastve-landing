@@ -31,7 +31,7 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
             <li><Link to="/services" className="hover:text-primary-deep">Услуги</Link></li>
             <li><a href="/#locations" className="hover:text-primary-deep">Локации</a></li>
-            <li><a href="/#about" className="hover:text-primary-deep">За нас</a></li>
+            <li><Link to="/za-nas" className="hover:text-primary-deep">За нас</Link></li>
             <li><a href="/#testimonials" className="hover:text-primary-deep">Отзиви</a></li>
           </ul>
         </div>
