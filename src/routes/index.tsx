@@ -21,6 +21,7 @@ import {
   Instagram,
   Linkedin,
   Menu,
+  Info,
 } from "lucide-react";
 import heroImg from "@/assets/hero-clinic.jpg";
 import teamImg from "@/assets/team.jpg";
@@ -116,6 +117,7 @@ function LandingPage() {
       <Header />
       <main>
         <Hero />
+        <PatientRegistration />
         <Services />
         <Locations />
         <WhyUs />
@@ -228,6 +230,62 @@ function TrustStat({ value, label }: { value: string; label: string }) {
       <div className="text-2xl font-bold text-primary-deep font-display">{value}</div>
       <div className="text-xs text-muted-foreground mt-1">{label}</div>
     </div>
+  );
+}
+
+function PatientRegistration() {
+  return (
+    <section className="py-6 lg:py-8">
+      <div className="container-page">
+        <div className="relative overflow-hidden rounded-3xl border border-border/60 bg-surface p-8 lg:p-10">
+          <div className="flex flex-col md:flex-row md:items-start gap-6 lg:gap-8">
+            <div className="shrink-0">
+              <div className="grid h-14 w-14 place-items-center rounded-2xl bg-white border border-border/60 text-primary-deep shadow-soft">
+                <Info className="h-7 w-7" />
+              </div>
+            </div>
+            <div className="flex-1">
+              <h2 className="text-2xl lg:text-3xl font-bold text-primary-deep">
+                Записване на нови пациенти
+              </h2>
+              <p className="mt-4 text-muted-foreground leading-relaxed max-w-3xl">
+                Записването на нови пациенти се извършва само с лична карта всяка година в следните периоди:
+              </p>
+              <ul className="mt-4 space-y-2">
+                <li className="flex items-center gap-3 text-foreground">
+                  <span className="h-2 w-2 rounded-full bg-primary" />
+                  <span>
+                    от <span className="font-semibold text-primary-deep">1 юни</span> до <span className="font-semibold text-primary-deep">30 юни</span> (включително)
+                  </span>
+                </li>
+                <li className="flex items-center gap-3 text-foreground">
+                  <span className="h-2 w-2 rounded-full bg-primary" />
+                  <span>
+                    от <span className="font-semibold text-primary-deep">1 декември</span> до <span className="font-semibold text-primary-deep">31 декември</span> (включително)
+                  </span>
+                </li>
+              </ul>
+
+              <div className="mt-6 pt-6 border-t border-border/60">
+                <p className="text-foreground leading-relaxed">
+                  Ако желаете да запишете дете, е необходимо да представите:
+                </p>
+                <ul className="mt-4 space-y-2.5">
+                  <li className="flex items-start gap-3 text-foreground">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary-deep shrink-0" />
+                    <span>Акт за раждане или лична карта (ако има такава);</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-foreground">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary-deep shrink-0" />
+                    <span>Личен амбулаторен картон (ЛАК) от предишния общопрактикуващ лекар.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
