@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ZaNasRouteImport } from './routes/za-nas'
+import { Route as KontaktiRouteImport } from './routes/kontakti'
 import { Route as ImunizacionenCentarRouteImport } from './routes/imunizacionen-centar'
 import { Route as ChestoZadavaniVaprosiRouteImport } from './routes/chesto-zadavani-vaprosi'
 import { Route as IndexRouteImport } from './routes/index'
@@ -19,6 +20,11 @@ import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 const ZaNasRoute = ZaNasRouteImport.update({
   id: '/za-nas',
   path: '/za-nas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktiRoute = KontaktiRouteImport.update({
+  id: '/kontakti',
+  path: '/kontakti',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ImunizacionenCentarRoute = ImunizacionenCentarRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/chesto-zadavani-vaprosi': typeof ChestoZadavaniVaprosiRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
+  '/kontakti': typeof KontaktiRoute
   '/za-nas': typeof ZaNasRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/chesto-zadavani-vaprosi': typeof ChestoZadavaniVaprosiRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
+  '/kontakti': typeof KontaktiRoute
   '/za-nas': typeof ZaNasRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services': typeof ServicesIndexRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/chesto-zadavani-vaprosi': typeof ChestoZadavaniVaprosiRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
+  '/kontakti': typeof KontaktiRoute
   '/za-nas': typeof ZaNasRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
@@ -78,6 +87,7 @@ export interface FileRouteTypes {
     | '/'
     | '/chesto-zadavani-vaprosi'
     | '/imunizacionen-centar'
+    | '/kontakti'
     | '/za-nas'
     | '/services/$slug'
     | '/services/'
@@ -86,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/chesto-zadavani-vaprosi'
     | '/imunizacionen-centar'
+    | '/kontakti'
     | '/za-nas'
     | '/services/$slug'
     | '/services'
@@ -94,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/chesto-zadavani-vaprosi'
     | '/imunizacionen-centar'
+    | '/kontakti'
     | '/za-nas'
     | '/services/$slug'
     | '/services/'
@@ -103,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ChestoZadavaniVaprosiRoute: typeof ChestoZadavaniVaprosiRoute
   ImunizacionenCentarRoute: typeof ImunizacionenCentarRoute
+  KontaktiRoute: typeof KontaktiRoute
   ZaNasRoute: typeof ZaNasRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
@@ -115,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/za-nas'
       fullPath: '/za-nas'
       preLoaderRoute: typeof ZaNasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakti': {
+      id: '/kontakti'
+      path: '/kontakti'
+      fullPath: '/kontakti'
+      preLoaderRoute: typeof KontaktiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/imunizacionen-centar': {
@@ -159,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ChestoZadavaniVaprosiRoute: ChestoZadavaniVaprosiRoute,
   ImunizacionenCentarRoute: ImunizacionenCentarRoute,
+  KontaktiRoute: KontaktiRoute,
   ZaNasRoute: ZaNasRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   ServicesIndexRoute: ServicesIndexRoute,
@@ -166,3 +187,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
