@@ -510,7 +510,9 @@ function Footer() {
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-deep text-primary-foreground">
               <HeartPulse className="h-5 w-5" />
             </span>
-            <span className="font-display text-lg font-bold text-primary-deep">МедиКеър</span>
+            <span className="font-display text-base font-bold text-primary-deep whitespace-pre-line leading-tight">
+              Клиника{"\n"}Д-р Чолакови
+            </span>
           </div>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
             Модерна медицинска клиника, посветена на здравето и комфорта на всеки пациент.
