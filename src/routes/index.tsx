@@ -401,7 +401,7 @@ function About() {
           <div className="overflow-hidden rounded-[2rem] shadow-card">
             <img
               src={teamImg}
-              alt="Екипът на клиника МедиКеър"
+              alt="Екипът на клиника Д-р Чолакови"
               width={1408}
               height={1408}
               loading="lazy"
