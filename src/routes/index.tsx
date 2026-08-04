@@ -21,6 +21,7 @@ import {
   Instagram,
   Linkedin,
   Menu,
+  Info,
 } from "lucide-react";
 import heroImg from "@/assets/hero-clinic.jpg";
 import teamImg from "@/assets/team.jpg";
