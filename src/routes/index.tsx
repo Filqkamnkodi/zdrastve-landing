@@ -138,7 +138,7 @@ function Header() {
           <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-deep text-primary-foreground">
             <HeartPulse className="h-5 w-5" />
           </span>
-          <span className="font-display text-sm font-bold tracking-tight text-primary-deep leading-tight whitespace-pre-line">
+          <span className="font-display text-base font-bold tracking-tight text-primary-deep leading-tight whitespace-pre-line">
             Клиника{"\n"}Д-р Чолакови
           </span>
         </a>
