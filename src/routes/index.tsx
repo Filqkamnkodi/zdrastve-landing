@@ -539,9 +539,9 @@ function Footer() {
         <div>
           <h4 className="text-sm font-semibold text-primary-deep">Контакти</h4>
           <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
-            <li className="flex gap-2"><Phone className="h-4 w-4 mt-0.5 text-primary" /> +359 2 123 4567</li>
-            <li className="flex gap-2"><Mail className="h-4 w-4 mt-0.5 text-primary" /> info@medicare.bg</li>
-            <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary" /> бул. „Витоша" 89, София</li>
+            <li className="flex gap-2"><Phone className="h-4 w-4 mt-0.5 text-primary" /> +359 886 011 166</li>
+            <li className="flex gap-2"><Mail className="h-4 w-4 mt-0.5 text-primary" /> contact@cholakoviclinic.bg</li>
+            <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary" /> ул. "Васил Друмев" 17, Шумен</li>
           </ul>
         </div>
 
