@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Stethoscope,
-  HeartPulse,
+  FileText,
   Baby,
   ScanLine,
   ShieldCheck,
