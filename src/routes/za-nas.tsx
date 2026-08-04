@@ -9,11 +9,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import heroImg from "@/assets/about-hero.jpg";
-import doctorMale from "@/assets/doctor-cholakov.jpg";
-import doctorFemale from "@/assets/doctor-cholakova.jpg";
-import doctorThird from "@/assets/team-doctor-3.jpg";
-import nurseOne from "@/assets/team-nurse-1.jpg";
-import nurseTwo from "@/assets/team-nurse-2.jpg";
+import { team } from "@/data/team";
+
 
 export const Route = createFileRoute("/za-nas")({
   head: () => ({
