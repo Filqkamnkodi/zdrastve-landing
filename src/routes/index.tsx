@@ -305,8 +305,8 @@ function Locations() {
                 <h3 className="text-lg font-semibold text-primary-deep">{loc.name}</h3>
                 <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
                   <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 shrink-0 text-primary" />{loc.address}</li>
-                  <li className="flex gap-3"><Clock className="h-4 w-4 mt-0.5 shrink-0 text-primary" />{loc.hours}</li>
-                  <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-primary" />{loc.phone}</li>
+                  <li className="flex gap-3 whitespace-pre-line"><Clock className="h-4 w-4 mt-0.5 shrink-0 text-primary" />{loc.hours}</li>
+                  <li className="flex gap-3 whitespace-pre-line"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-primary" />{loc.phone}</li>
                 </ul>
                 <button className="btn-ghost mt-6 w-full !py-2.5 text-sm">
                   Виж на картата <ArrowRight className="h-4 w-4" />
