@@ -9,11 +9,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import heroImg from "@/assets/about-hero.jpg";
-import doctorMale from "@/assets/doctor-cholakov.jpg";
-import doctorFemale from "@/assets/doctor-cholakova.jpg";
-import doctorThird from "@/assets/team-doctor-3.jpg";
-import nurseOne from "@/assets/team-nurse-1.jpg";
-import nurseTwo from "@/assets/team-nurse-2.jpg";
+import { team } from "@/data/team";
+
 
 export const Route = createFileRoute("/za-nas")({
   head: () => ({
@@ -55,16 +52,7 @@ const values = [
   },
 ];
 
-const placeholderBio =
-  "Тук ще бъде публикувана подробна информация за биографията, специалностите, образованието и професионалния опит на специалиста.";
 
-const team = [
-  { name: "Д-р Милен Русев Чолаков", image: doctorMale, bio: placeholderBio },
-  { name: "Д-р Тереза Стоева Чолакова", image: doctorFemale, bio: placeholderBio },
-  { name: "Д-р Специалист", image: doctorThird, bio: placeholderBio },
-  { name: "Медицинска сестра", image: nurseOne, bio: placeholderBio },
-  { name: "Медицински специалист", image: nurseTwo, bio: placeholderBio },
-];
 
 function AboutPage() {
   return (
@@ -213,9 +201,9 @@ function AboutPage() {
                 преглед.
               </p>
               <div className="mt-7 flex flex-wrap justify-center gap-3">
-                <a href="/#cta" className="btn-ghost">
+                <Link to="/zapazi-chas" className="btn-ghost">
                   <CalendarCheck className="h-4 w-4" /> Запази час
-                </a>
+                </Link>
                 <a href="/#contact" className="btn-ghost">
                   <Phone className="h-4 w-4" /> Контакти
                 </a>

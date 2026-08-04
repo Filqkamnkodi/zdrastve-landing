@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ZapaziChasRouteImport } from './routes/zapazi-chas'
 import { Route as ZaNasRouteImport } from './routes/za-nas'
 import { Route as KontaktiRouteImport } from './routes/kontakti'
 import { Route as ImunizacionenCentarRouteImport } from './routes/imunizacionen-centar'
@@ -17,6 +18,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
+const ZapaziChasRoute = ZapaziChasRouteImport.update({
+  id: '/zapazi-chas',
+  path: '/zapazi-chas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ZaNasRoute = ZaNasRouteImport.update({
   id: '/za-nas',
   path: '/za-nas',
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
   '/kontakti': typeof KontaktiRoute
   '/za-nas': typeof ZaNasRoute
+  '/zapazi-chas': typeof ZapaziChasRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
   '/kontakti': typeof KontaktiRoute
   '/za-nas': typeof ZaNasRoute
+  '/zapazi-chas': typeof ZapaziChasRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
   '/kontakti': typeof KontaktiRoute
   '/za-nas': typeof ZaNasRoute
+  '/zapazi-chas': typeof ZapaziChasRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/imunizacionen-centar'
     | '/kontakti'
     | '/za-nas'
+    | '/zapazi-chas'
     | '/services/$slug'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/imunizacionen-centar'
     | '/kontakti'
     | '/za-nas'
+    | '/zapazi-chas'
     | '/services/$slug'
     | '/services'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/imunizacionen-centar'
     | '/kontakti'
     | '/za-nas'
+    | '/zapazi-chas'
     | '/services/$slug'
     | '/services/'
   fileRoutesById: FileRoutesById
@@ -117,12 +129,20 @@ export interface RootRouteChildren {
   ImunizacionenCentarRoute: typeof ImunizacionenCentarRoute
   KontaktiRoute: typeof KontaktiRoute
   ZaNasRoute: typeof ZaNasRoute
+  ZapaziChasRoute: typeof ZapaziChasRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/zapazi-chas': {
+      id: '/zapazi-chas'
+      path: '/zapazi-chas'
+      fullPath: '/zapazi-chas'
+      preLoaderRoute: typeof ZapaziChasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/za-nas': {
       id: '/za-nas'
       path: '/za-nas'
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   ImunizacionenCentarRoute: ImunizacionenCentarRoute,
   KontaktiRoute: KontaktiRoute,
   ZaNasRoute: ZaNasRoute,
+  ZapaziChasRoute: ZapaziChasRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
