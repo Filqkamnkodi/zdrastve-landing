@@ -255,8 +255,8 @@ function Services() {
       <div className="container-page">
         <SectionHeader
           eyebrow="Нашите услуги"
-          title="Нашите услуги"
-          desc="Пълно портфолио от медицински специалности на едно място, обслужвано от опитни лекари."
+          title="Цялостна грижа за вашето здраве"
+          desc="Профилактика, диагностика и лечение, извършвани от опитни медицински специалисти с индивидуален подход към всеки пациент."
         />
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (
