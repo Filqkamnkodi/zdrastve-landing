@@ -20,9 +20,9 @@ import {
   Facebook,
   Instagram,
   Linkedin,
-  Menu,
   Info,
 } from "lucide-react";
+import { SiteHeader } from "@/components/SiteHeader";
 import heroImg from "@/assets/hero-clinic.jpg";
 import teamImg from "@/assets/team.jpg";
 
@@ -114,7 +114,7 @@ const stats = [
 function LandingPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Header />
+      <SiteHeader />
       <main>
         <Hero />
         <PatientRegistration />
@@ -127,38 +127,6 @@ function LandingPage() {
       </main>
       <Footer />
     </div>
-  );
-}
-
-function Header() {
-  return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-border/60">
-      <div className="container-page flex h-16 items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-deep text-primary-foreground">
-            <HeartPulse className="h-5 w-5" />
-          </span>
-          <span className="font-display text-base font-bold tracking-tight text-primary-deep leading-tight whitespace-pre-line">
-            Клиника{"\n"}Д-р Чолакови
-          </span>
-        </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
-          <a href="/services" className="hover:text-primary-deep transition">Услуги</a>
-          <Link to="/imunizacionen-centar" className="hover:text-primary-deep transition">Имунизационен център</Link>
-          <a href="#about" className="hover:text-primary-deep transition">За нас</a>
-          <a href="#testimonials" className="hover:text-primary-deep transition">ЧЗВ</a>
-          <a href="#contact" className="hover:text-primary-deep transition">Контакти</a>
-        </nav>
-        <div className="flex items-center gap-2">
-          <Link to="/zapazi-chas" className="btn-primary hidden sm:inline-flex !py-2.5 !px-5 text-sm">
-            <CalendarCheck className="h-4 w-4" /> Запази час
-          </Link>
-          <button aria-label="Меню" className="md:hidden grid h-10 w-10 place-items-center rounded-full border border-border">
-            <Menu className="h-5 w-5" />
-          </button>
-        </div>
-      </div>
-    </header>
   );
 }
 
