@@ -106,7 +106,7 @@ const testimonials = [
 
 const stats = [
   { value: "25+", label: "години опит" },
-  { value: "20+", label: "специалисти" },
+  { value: "5", label: "специалисти" },
   { value: "15 000+", label: "доволни пациенти" },
   { value: "98%", label: "удовлетвореност" },
 ];
