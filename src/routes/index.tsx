@@ -286,9 +286,9 @@ function Services() {
               </div>
               <h3 className="mt-5 text-xl font-semibold text-primary-deep">{s.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              <a href="#contact" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all">
+              <Link to="/services" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all">
                 Научете повече <ArrowRight className="h-4 w-4" />
-              </a>
+              </Link>
             </article>
           ))}
         </div>
