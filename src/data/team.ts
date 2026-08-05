@@ -15,8 +15,8 @@ export const placeholderBio =
 
 export const team: TeamMember[] = [
   { name: "Д-р Милен Русев Чолаков", image: doctorMale, bio: placeholderBio },
-  { name: "Д-р Тереза Стоева Чолакова", image: doctorFemale, bio: placeholderBio },
-  { name: "Д-р Специалист", image: doctorThird, bio: placeholderBio },
-  { name: "Медицинска сестра", image: nurseOne, bio: placeholderBio },
-  { name: "Медицински специалист", image: nurseTwo, bio: placeholderBio },
+  { name: "Д-р Милен Миленов Чолаков\u00a0", image: doctorFemale, bio: placeholderBio },
+  { name: "Д-р Симана Иванова", image: doctorThird, bio: placeholderBio },
+  { name: "Мед. Сестра Емилия Райнова", image: nurseOne, bio: placeholderBio },
+  { name: "Мед. Фелдшер Албена Мирова", image: nurseTwo, bio: placeholderBio },
 ];
