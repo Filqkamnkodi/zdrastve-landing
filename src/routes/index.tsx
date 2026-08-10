@@ -520,6 +520,14 @@ function Footer() {
           </ul>
         </div>
 
+        <div>
+          <h4 className="text-sm font-semibold text-primary-deep">Правна информация</h4>
+          <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+            <li><a href="#" className="hover:text-primary-deep">Политика за поверителност</a></li>
+            <li><a href="#" className="hover:text-primary-deep">Общи условия</a></li>
+          </ul>
+        </div>
+
       </div>
       <div className="border-t border-border">
         <div className="container-page py-6 flex flex-col sm:flex-row gap-2 items-center justify-between text-xs text-muted-foreground">
