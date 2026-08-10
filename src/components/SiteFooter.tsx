@@ -49,7 +49,6 @@ export function SiteFooter() {
           <h4 className="text-sm font-semibold text-primary-deep">Правна информация</h4>
           <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
             <li><a href="#" className="hover:text-primary-deep">Политика за поверителност</a></li>
-            <li><a href="#" className="hover:text-primary-deep">GDPR</a></li>
             <li><a href="#" className="hover:text-primary-deep">Общи условия</a></li>
           </ul>
         </div>
