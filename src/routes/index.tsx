@@ -87,12 +87,14 @@ const locations = [
     address: 'ул. "Васил Друмев" 17, 9700',
     hours: "Пон–Четв: 8:00 – 16:30\nПетък: 8:00 - 12:30\nСб-Нд: Почивни дни",
     phone: "+359 886 011 166\n+359 885 646 724",
+    mapLink: "https://maps.app.goo.gl/99wj7gqCuKW8s2rA8",
   },
   {
     name: "Клиника Д-р Чолакови - Нови Пазар",
     address: "ул. Христо Ботев 22, каб. номер 3 и манипулационна номер 4",
     hours: "Пон–Четв: 8:00 – 16:00\nПетък: 8:00-13:00\nСб-Нд: Почивни дни",
     phone: "+359 896 600 290",
+    mapLink: "https://maps.app.goo.gl/99wj7gqCuKW8s2rA8",
   },
 ];
 
@@ -328,9 +330,14 @@ function Locations() {
                   <li className="flex gap-3 whitespace-pre-line"><Clock className="h-4 w-4 mt-0.5 shrink-0 text-primary" />{loc.hours}</li>
                   <li className="flex gap-3 whitespace-pre-line"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-primary" />{loc.phone}</li>
                 </ul>
-                <button className="btn-ghost mt-6 w-full !py-2.5 text-sm">
+                <a
+                  href={loc.mapLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost mt-6 w-full !py-2.5 text-sm inline-flex items-center justify-center gap-2"
+                >
                   Виж на картата <ArrowRight className="h-4 w-4" />
-                </button>
+                </a>
               </div>
             </article>
           ))}
