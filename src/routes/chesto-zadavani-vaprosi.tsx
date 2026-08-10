@@ -124,9 +124,9 @@ function FaqPage() {
                 радваме да ви помогнем.
               </p>
               <div className="mt-7 flex flex-wrap justify-center gap-3">
-                <a href="/#contact" className="btn-ghost">
+                <Link to="/kontakti" className="btn-ghost">
                   <Phone className="h-4 w-4" /> Свържете се с нас
-                </a>
+                </Link>
                 <Link to="/zapazi-chas" className="btn-ghost">
                   <CalendarCheck className="h-4 w-4" /> Запази час
                 </Link>
