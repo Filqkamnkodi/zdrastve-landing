@@ -94,7 +94,7 @@ function FaqPage() {
         {/* Categories */}
         <section className="py-10 lg:py-12 bg-surface border-y border-border/60">
           <div className="container-page">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {faqCategories.map((c) => {
                 const Icon = icons[c.id as keyof typeof icons];
                 return (
