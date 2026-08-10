@@ -91,29 +91,6 @@ function FaqPage() {
           </div>
         </section>
 
-        {/* Categories */}
-        <section className="py-10 lg:py-12 bg-surface border-y border-border/60">
-          <div className="container-page">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {faqCategories.map((c) => {
-                const Icon = icons[c.id as keyof typeof icons];
-                return (
-                  <a
-                    key={c.id}
-                    href={`#${c.id}`}
-                    className="card-soft rounded-[1.25rem] p-5 animate-fade-up transition-all hover:-translate-y-1 hover:shadow-soft"
-                  >
-                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary-soft/25 text-primary-deep">
-                      <Icon className="h-5 w-5" strokeWidth={1.75} />
-                    </span>
-                    <h2 className="mt-4 text-base font-semibold text-primary-deep">{c.title}</h2>
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
         {/* FAQ sections */}
         <section className="py-12 lg:py-16">
           <div className="container-page max-w-4xl space-y-12">
