@@ -94,7 +94,7 @@ const locations = [
     address: "ул. Христо Ботев 22, каб. номер 3 и манипулационна номер 4",
     hours: "Пон–Четв: 8:00 – 16:00\nПетък: 8:00-13:00\nСб-Нд: Почивни дни",
     phone: "+359 896 600 290",
-    mapLink: "https://maps.app.goo.gl/99wj7gqCuKW8s2rA8",
+    mapLink: "https://maps.app.goo.gl/6JiNcLeXx1AZzr1g6",
   },
 ];
 
