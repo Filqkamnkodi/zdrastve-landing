@@ -2,8 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   HelpCircle,
   CalendarCheck,
-  Syringe,
-  FileText,
   Phone,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -19,9 +17,6 @@ import heroImg from "@/assets/faq-hero.jpg";
 
 const icons = {
   general: HelpCircle,
-  appointments: CalendarCheck,
-  immunizations: Syringe,
-  documents: FileText,
 } as const;
 
 export const Route = createFileRoute("/chesto-zadavani-vaprosi")({
