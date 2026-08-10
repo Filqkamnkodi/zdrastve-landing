@@ -91,8 +91,7 @@ function FaqPage() {
           <div className="container-page max-w-4xl space-y-12">
             {faqCategories.map((c) => (
               <section key={c.id} id={c.id} className="scroll-mt-24 animate-fade-up">
-                <h2 className="text-2xl sm:text-3xl font-bold text-primary-deep">{c.title}</h2>
-                <Accordion type="single" collapsible className="mt-5 space-y-3">
+                <Accordion type="single" collapsible className="space-y-3">
                   {c.items.map((item, i) => (
                     <AccordionItem
                       key={i}
