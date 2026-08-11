@@ -1,15 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowRight, CalendarCheck, CheckCircle2, Phone } from "lucide-react";
+import { ArrowRight, CalendarCheck, Phone } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { servicesList } from "@/data/services";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { includes, recommended, faqs } from "@/data/servicePageContent";
+
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
