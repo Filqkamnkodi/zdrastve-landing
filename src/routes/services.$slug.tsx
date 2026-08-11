@@ -248,6 +248,32 @@ function ServiceDetailPage() {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section className="py-12 lg:py-16 bg-surface">
+          <div className="container-page animate-fade-up">
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary-deep text-center">
+              Често задавани въпроси
+            </h2>
+            <p className="mt-3 text-center text-muted-foreground max-w-2xl mx-auto">
+              Отговори на най-честите въпроси, свързани с услугата „{service.title}“.
+            </p>
+            <div className="mt-10 max-w-3xl mx-auto">
+              <Accordion type="single" collapsible className="w-full">
+                {serviceFaqs.map((faq, i) => (
+                  <AccordionItem key={i} value={`faq-${i}`}>
+                    <AccordionTrigger className="text-base font-medium text-primary-deep">
+                      {faq.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                      {faq.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+        </section>
+
         {/* Related */}
         <section className="pb-16 lg:pb-24">
           <div className="container-page">
