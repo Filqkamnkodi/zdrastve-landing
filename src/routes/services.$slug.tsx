@@ -95,14 +95,6 @@ function ServiceDetailPage() {
                 {service.title}
               </h1>
               <p className="mt-5 text-lg text-muted-foreground leading-relaxed">{service.desc}</p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href="/#cta" className="btn-primary">
-                  <CalendarCheck className="h-5 w-5" /> Запазете час
-                </a>
-                <Link to="/services" className="btn-ghost">
-                  Всички услуги <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
             </div>
             <div className="overflow-hidden rounded-[1.25rem] shadow-soft animate-fade-up">
               <img
