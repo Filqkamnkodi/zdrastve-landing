@@ -171,60 +171,7 @@ function ServiceDetailPage() {
           </div>
         </section>
 
-        {/* Includes */}
-        <section className="py-12 lg:py-16 bg-surface border-y border-border/60">
-          <div className="container-page">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary-deep animate-fade-up">
-              Какво включва услугата
-            </h2>
-            <ul className="mt-8 grid sm:grid-cols-2 gap-4">
-              {includes.map((item) => (
-                <li key={item} className="flex items-start gap-3 animate-fade-up">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-muted-foreground leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
 
-        {/* Recommended */}
-        <section className="py-12 lg:py-16">
-          <div className="container-page">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary-deep animate-fade-up">
-              Кога е препоръчителна тази услуга?
-            </h2>
-            <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {recommended.map((r) => (
-                <div key={r.title} className="card-soft p-6 rounded-[1.25rem] animate-fade-up">
-                  <h3 className="text-lg font-semibold text-primary-deep">{r.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{r.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="py-12 lg:py-16 bg-surface border-y border-border/60">
-          <div className="container-page max-w-3xl">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary-deep animate-fade-up">
-              Често задавани въпроси
-            </h2>
-            <Accordion type="single" collapsible className="mt-6">
-              {faqs.map((f) => (
-                <AccordionItem key={f.q} value={f.q}>
-                  <AccordionTrigger className="text-left text-primary-deep">
-                    {f.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed">
-                    {f.a}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </section>
 
         {/* CTA */}
         <section className="py-12 lg:py-16">
