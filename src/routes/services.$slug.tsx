@@ -124,31 +124,19 @@ function ServiceDetailPage() {
 
         {/* Overview */}
         <section className="py-12 lg:py-16">
-          <div className="container-page grid lg:grid-cols-2 gap-10 items-center">
-            <div className="animate-fade-up">
-              <h2 className="text-2xl sm:text-3xl font-bold text-primary-deep">
-                За услугата
-              </h2>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
-                Съдържанието за тази страница предстои да бъде допълнено. Тук ще намерите
-                подробно описание на процедурата, необходимата подготовка, продължителността
-                и какво да очаквате по време на посещението.
-              </p>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
-                Екипът ни работи с индивидуален подход към всеки пациент и осигурява
-                спокойна и сигурна среда, в която да получите ясни отговори на въпросите си.
-              </p>
-            </div>
-            <div className="overflow-hidden rounded-[1.25rem] shadow-soft animate-fade-up">
-              <img
-                src={service.image}
-                alt={`${service.title} — Клиника Д-р Чолакови`}
-                loading="lazy"
-                width={1024}
-                height={576}
-                className="h-full w-full object-cover aspect-video"
-              />
-            </div>
+          <div className="container-page animate-fade-up">
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary-deep">
+              За услугата
+            </h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Съдържанието за тази страница предстои да бъде допълнено. Тук ще намерите
+              подробно описание на процедурата, необходимата подготовка, продължителността
+              и какво да очаквате по време на посещението.
+            </p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Екипът ни работи с индивидуален подход към всеки пациент и осигурява
+              спокойна и сигурна среда, в която да получите ясни отговори на въпросите си.
+            </p>
           </div>
         </section>
 
