@@ -54,9 +54,9 @@ export function SiteHeader() {
           <img
             src={logoAsset.url}
             alt="Клиника Д-р Чолакови"
-            width={40}
-            height={40}
-            className="h-10 w-10 object-contain"
+            width={48}
+            height={48}
+            className="h-12 w-12 object-contain"
           />
           <span className="font-display text-base font-bold tracking-tight text-primary-deep leading-tight whitespace-pre-line">
             Клиника{"\n"}Д-р Чолакови
