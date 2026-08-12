@@ -229,9 +229,6 @@ function ServiceDetailPage() {
             <h2 className="text-2xl sm:text-3xl font-bold text-primary-deep text-center">
               Задължения на ОПЛ по оказване на спешна медицинска помощ
             </h2>
-            <p className="mt-3 text-center text-muted-foreground max-w-2xl mx-auto">
-              Отговори на най-честите въпроси, свързани с услугата „{service.title}“.
-            </p>
             <div className="mt-10 max-w-3xl mx-auto">
               <Accordion type="single" collapsible className="w-full">
                 {serviceFaqs.map((faq, i) => (
