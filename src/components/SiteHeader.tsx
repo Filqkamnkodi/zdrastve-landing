@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { HeartPulse, CalendarCheck, Menu, X } from "lucide-react";
+import { CalendarCheck, Menu, X } from "lucide-react";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 const navItems = [
   { to: "/services", label: "Услуги" },
@@ -50,9 +51,13 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-border/60">
       <div className="container-page flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-deep text-primary-foreground">
-            <HeartPulse className="h-5 w-5" />
-          </span>
+          <img
+            src={logoAsset.url}
+            alt="Клиника Д-р Чолакови"
+            width={36}
+            height={36}
+            className="h-9 w-9 object-contain"
+          />
           <span className="font-display text-base font-bold tracking-tight text-primary-deep leading-tight whitespace-pre-line">
             Клиника{"\n"}Д-р Чолакови
           </span>
