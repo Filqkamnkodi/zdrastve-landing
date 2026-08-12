@@ -185,6 +185,8 @@ function ServiceDetailPage() {
                     <li><p className="flex gap-2">{"-"}пациентът да знае точната длъжност по трудов договор</p></li>
                   </ul>
                 </>
+              ) : service.slug === "opl-i-speshna-pomosht" ? (
+                <></>
               ) : (
                 <>
                   Съдържанието за тази страница предстои да бъде допълнено. Тук ще намерите
