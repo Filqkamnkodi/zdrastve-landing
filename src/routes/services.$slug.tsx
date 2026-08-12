@@ -227,7 +227,7 @@ function ServiceDetailPage() {
         <section className="py-12 lg:py-16 bg-surface">
           <div className="container-page animate-fade-up">
             <h2 className="text-2xl sm:text-3xl font-bold text-primary-deep text-center">
-              Често задавани въпроси
+              Задължения на ОПЛ по оказване на спешна медицинска помощ
             </h2>
             <p className="mt-3 text-center text-muted-foreground max-w-2xl mx-auto">
               Отговори на най-честите въпроси, свързани с услугата „{service.title}“.
