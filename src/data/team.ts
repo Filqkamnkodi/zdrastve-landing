@@ -1,9 +1,10 @@
 import doctorMaleAsset from "@/assets/doctor-cholakov-senior.webp.asset.json";
 import doctorJuniorAsset from "@/assets/doctor-cholakov-junior.webp.asset.json";
+import doctorThirdAsset from "@/assets/doctor-simana-ivanova.webp.asset.json";
 
 const doctorMale = doctorMaleAsset.url;
 const doctorJunior = doctorJuniorAsset.url;
-import doctorThird from "@/assets/team-doctor-3.jpg";
+const doctorThird = doctorThirdAsset.url;
 import nurseOne from "@/assets/team-nurse-1.jpg";
 import nurseTwo from "@/assets/team-nurse-2.jpg";
 
