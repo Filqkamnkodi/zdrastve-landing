@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ZapaziChasRouteImport } from './routes/zapazi-chas'
 import { Route as ZaNasRouteImport } from './routes/za-nas'
+import { Route as PolitikaZaPoveritelnostRouteImport } from './routes/politika-za-poveritelnost'
 import { Route as KontaktiRouteImport } from './routes/kontakti'
 import { Route as ImunizacionenCentarRouteImport } from './routes/imunizacionen-centar'
 import { Route as ChestoZadavaniVaprosiRouteImport } from './routes/chesto-zadavani-vaprosi'
@@ -26,6 +27,11 @@ const ZapaziChasRoute = ZapaziChasRouteImport.update({
 const ZaNasRoute = ZaNasRouteImport.update({
   id: '/za-nas',
   path: '/za-nas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolitikaZaPoveritelnostRoute = PolitikaZaPoveritelnostRouteImport.update({
+  id: '/politika-za-poveritelnost',
+  path: '/politika-za-poveritelnost',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KontaktiRoute = KontaktiRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/chesto-zadavani-vaprosi': typeof ChestoZadavaniVaprosiRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
   '/kontakti': typeof KontaktiRoute
+  '/politika-za-poveritelnost': typeof PolitikaZaPoveritelnostRoute
   '/za-nas': typeof ZaNasRoute
   '/zapazi-chas': typeof ZapaziChasRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/chesto-zadavani-vaprosi': typeof ChestoZadavaniVaprosiRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
   '/kontakti': typeof KontaktiRoute
+  '/politika-za-poveritelnost': typeof PolitikaZaPoveritelnostRoute
   '/za-nas': typeof ZaNasRoute
   '/zapazi-chas': typeof ZapaziChasRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/chesto-zadavani-vaprosi': typeof ChestoZadavaniVaprosiRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
   '/kontakti': typeof KontaktiRoute
+  '/politika-za-poveritelnost': typeof PolitikaZaPoveritelnostRoute
   '/za-nas': typeof ZaNasRoute
   '/zapazi-chas': typeof ZapaziChasRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/chesto-zadavani-vaprosi'
     | '/imunizacionen-centar'
     | '/kontakti'
+    | '/politika-za-poveritelnost'
     | '/za-nas'
     | '/zapazi-chas'
     | '/services/$slug'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/chesto-zadavani-vaprosi'
     | '/imunizacionen-centar'
     | '/kontakti'
+    | '/politika-za-poveritelnost'
     | '/za-nas'
     | '/zapazi-chas'
     | '/services/$slug'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/chesto-zadavani-vaprosi'
     | '/imunizacionen-centar'
     | '/kontakti'
+    | '/politika-za-poveritelnost'
     | '/za-nas'
     | '/zapazi-chas'
     | '/services/$slug'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   ChestoZadavaniVaprosiRoute: typeof ChestoZadavaniVaprosiRoute
   ImunizacionenCentarRoute: typeof ImunizacionenCentarRoute
   KontaktiRoute: typeof KontaktiRoute
+  PolitikaZaPoveritelnostRoute: typeof PolitikaZaPoveritelnostRoute
   ZaNasRoute: typeof ZaNasRoute
   ZapaziChasRoute: typeof ZapaziChasRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/za-nas'
       fullPath: '/za-nas'
       preLoaderRoute: typeof ZaNasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politika-za-poveritelnost': {
+      id: '/politika-za-poveritelnost'
+      path: '/politika-za-poveritelnost'
+      fullPath: '/politika-za-poveritelnost'
+      preLoaderRoute: typeof PolitikaZaPoveritelnostRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kontakti': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChestoZadavaniVaprosiRoute: ChestoZadavaniVaprosiRoute,
   ImunizacionenCentarRoute: ImunizacionenCentarRoute,
   KontaktiRoute: KontaktiRoute,
+  PolitikaZaPoveritelnostRoute: PolitikaZaPoveritelnostRoute,
   ZaNasRoute: ZaNasRoute,
   ZapaziChasRoute: ZapaziChasRoute,
   ServicesSlugRoute: ServicesSlugRoute,

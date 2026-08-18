@@ -234,13 +234,10 @@ function PrivacyPage() {
                     и, ако бъдат внедрени, допълнителни аналитични или маркетингови технологии.
                   </p>
                   <p>
-                    Повече информация можете да намерите в{" "}
-                    <Link
-                      to="/politika-za-biskvitkite"
-                      className="text-primary hover:text-primary-deep underline underline-offset-2"
-                    >
-                      Политика за бисквитките
-                    </Link>
+                    Повече информация можете да намерите в
+                    <span className="text-muted-foreground">
+                      {" "}Политика за бисквитките
+                    </span>
                     .
                   </p>
                 </Section>
