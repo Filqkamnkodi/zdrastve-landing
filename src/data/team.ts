@@ -1,4 +1,6 @@
-import doctorMale from "@/assets/doctor-cholakov.jpg";
+import doctorMaleAsset from "@/assets/doctor-cholakov-senior.webp.asset.json";
+
+const doctorMale = doctorMaleAsset.url;
 import doctorFemale from "@/assets/doctor-cholakova.jpg";
 import doctorThird from "@/assets/team-doctor-3.jpg";
 import nurseOne from "@/assets/team-nurse-1.jpg";
