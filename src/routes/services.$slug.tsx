@@ -236,12 +236,12 @@ function ServiceDetailPage() {
                 {service.ctaText}
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <a href="/#cta" className="btn-primary">
+                <Link to="/zapazi-chas" className="btn-primary">
                   <CalendarCheck className="h-5 w-5" /> Запазете час
-                </a>
-                <a href="/#contact" className="btn-ghost">
+                </Link>
+                <Link to="/kontakti" className="btn-ghost">
                   <Phone className="h-4 w-4" /> Свържете се с нас
-                </a>
+                </Link>
               </div>
             </div>
           </div>
