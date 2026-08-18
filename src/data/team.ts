@@ -1,7 +1,8 @@
 import doctorMaleAsset from "@/assets/doctor-cholakov-senior.webp.asset.json";
+import doctorJuniorAsset from "@/assets/doctor-cholakov-junior.webp.asset.json";
 
 const doctorMale = doctorMaleAsset.url;
-import doctorFemale from "@/assets/doctor-cholakova.jpg";
+const doctorJunior = doctorJuniorAsset.url;
 import doctorThird from "@/assets/team-doctor-3.jpg";
 import nurseOne from "@/assets/team-nurse-1.jpg";
 import nurseTwo from "@/assets/team-nurse-2.jpg";
@@ -24,7 +25,7 @@ export const team: TeamMember[] = [
 
   { 
     name: "Д-р Милен Миленов Чолаков", 
-    image: doctorFemale, 
+    image: doctorJunior, 
     bio: "Роден през 2000г. в гр. Шумен. През 2019г. Завършва ППМГ „Нанчо Попович“ и започва обучението си за лекар в Медицински университет „Проф. Д-р Параскев Стоянов – Варна“.\u00a0 През 2024г. провежда 3 – месечен стаж по хирургия в гр. Каунас, Литва. През 2025г. Завършва Медицински университет „Проф. Д-р Параскев Стоянов“ гр. Варна От 2025г. специализира Обща медицина в „Клиника Д-р Чолакови“."
   },
   { 
