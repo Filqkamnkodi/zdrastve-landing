@@ -2,7 +2,8 @@ import { servicesList } from "@/data/services";
 
 export type ContentBlock =
   | { type: "paragraph"; text: string }
-  | { type: "list"; items: string[] };
+  | { type: "list"; items: string[] }
+  | { type: "heading"; text: string };
 
 export type ServiceFaq = { q: string; a: string };
 
