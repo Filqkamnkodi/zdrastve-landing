@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ZapaziChasRouteImport } from './routes/zapazi-chas'
 import { Route as ZaNasRouteImport } from './routes/za-nas'
 import { Route as PolitikaZaPoveritelnostRouteImport } from './routes/politika-za-poveritelnost'
+import { Route as ObshtiUsloviyaRouteImport } from './routes/obshti-usloviya'
 import { Route as KontaktiRouteImport } from './routes/kontakti'
 import { Route as ImunizacionenCentarRouteImport } from './routes/imunizacionen-centar'
 import { Route as ChestoZadavaniVaprosiRouteImport } from './routes/chesto-zadavani-vaprosi'
@@ -32,6 +33,11 @@ const ZaNasRoute = ZaNasRouteImport.update({
 const PolitikaZaPoveritelnostRoute = PolitikaZaPoveritelnostRouteImport.update({
   id: '/politika-za-poveritelnost',
   path: '/politika-za-poveritelnost',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ObshtiUsloviyaRoute = ObshtiUsloviyaRouteImport.update({
+  id: '/obshti-usloviya',
+  path: '/obshti-usloviya',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KontaktiRoute = KontaktiRouteImport.update({
@@ -70,6 +76,7 @@ export interface FileRoutesByFullPath {
   '/chesto-zadavani-vaprosi': typeof ChestoZadavaniVaprosiRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
   '/kontakti': typeof KontaktiRoute
+  '/obshti-usloviya': typeof ObshtiUsloviyaRoute
   '/politika-za-poveritelnost': typeof PolitikaZaPoveritelnostRoute
   '/za-nas': typeof ZaNasRoute
   '/zapazi-chas': typeof ZapaziChasRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByTo {
   '/chesto-zadavani-vaprosi': typeof ChestoZadavaniVaprosiRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
   '/kontakti': typeof KontaktiRoute
+  '/obshti-usloviya': typeof ObshtiUsloviyaRoute
   '/politika-za-poveritelnost': typeof PolitikaZaPoveritelnostRoute
   '/za-nas': typeof ZaNasRoute
   '/zapazi-chas': typeof ZapaziChasRoute
@@ -93,6 +101,7 @@ export interface FileRoutesById {
   '/chesto-zadavani-vaprosi': typeof ChestoZadavaniVaprosiRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
   '/kontakti': typeof KontaktiRoute
+  '/obshti-usloviya': typeof ObshtiUsloviyaRoute
   '/politika-za-poveritelnost': typeof PolitikaZaPoveritelnostRoute
   '/za-nas': typeof ZaNasRoute
   '/zapazi-chas': typeof ZapaziChasRoute
@@ -106,6 +115,7 @@ export interface FileRouteTypes {
     | '/chesto-zadavani-vaprosi'
     | '/imunizacionen-centar'
     | '/kontakti'
+    | '/obshti-usloviya'
     | '/politika-za-poveritelnost'
     | '/za-nas'
     | '/zapazi-chas'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/chesto-zadavani-vaprosi'
     | '/imunizacionen-centar'
     | '/kontakti'
+    | '/obshti-usloviya'
     | '/politika-za-poveritelnost'
     | '/za-nas'
     | '/zapazi-chas'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/chesto-zadavani-vaprosi'
     | '/imunizacionen-centar'
     | '/kontakti'
+    | '/obshti-usloviya'
     | '/politika-za-poveritelnost'
     | '/za-nas'
     | '/zapazi-chas'
@@ -140,6 +152,7 @@ export interface RootRouteChildren {
   ChestoZadavaniVaprosiRoute: typeof ChestoZadavaniVaprosiRoute
   ImunizacionenCentarRoute: typeof ImunizacionenCentarRoute
   KontaktiRoute: typeof KontaktiRoute
+  ObshtiUsloviyaRoute: typeof ObshtiUsloviyaRoute
   PolitikaZaPoveritelnostRoute: typeof PolitikaZaPoveritelnostRoute
   ZaNasRoute: typeof ZaNasRoute
   ZapaziChasRoute: typeof ZapaziChasRoute
@@ -168,6 +181,13 @@ declare module '@tanstack/react-router' {
       path: '/politika-za-poveritelnost'
       fullPath: '/politika-za-poveritelnost'
       preLoaderRoute: typeof PolitikaZaPoveritelnostRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/obshti-usloviya': {
+      id: '/obshti-usloviya'
+      path: '/obshti-usloviya'
+      fullPath: '/obshti-usloviya'
+      preLoaderRoute: typeof ObshtiUsloviyaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kontakti': {
@@ -220,6 +240,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChestoZadavaniVaprosiRoute: ChestoZadavaniVaprosiRoute,
   ImunizacionenCentarRoute: ImunizacionenCentarRoute,
   KontaktiRoute: KontaktiRoute,
+  ObshtiUsloviyaRoute: ObshtiUsloviyaRoute,
   PolitikaZaPoveritelnostRoute: PolitikaZaPoveritelnostRoute,
   ZaNasRoute: ZaNasRoute,
   ZapaziChasRoute: ZapaziChasRoute,
