@@ -205,7 +205,11 @@ function ContactPage() {
                   />
                   <Label htmlFor="consent" className="text-xs font-normal leading-relaxed text-muted-foreground">
                     Съгласен/на съм предоставените данни да бъдат използвани единствено за
-                    обработване на моето запитване.
+                    обработване на моето запитване. Запознат/а съм с{" "}
+                    <Link to="/politika-za-poveritelnost" className="underline hover:text-primary-deep">
+                      Политиката за поверителност
+                    </Link>
+                    .
                   </Label>
                 </div>
                 {errors.consent && <p className="text-xs text-destructive">{errors.consent}</p>}
