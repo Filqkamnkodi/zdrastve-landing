@@ -265,7 +265,11 @@ function AppointmentPage() {
                   />
                   <Label htmlFor="consent" className="text-xs font-normal leading-relaxed text-muted-foreground">
                     Съгласен/на съм предоставените данни да бъдат използвани за обработване на
-                    заявката ми и за връзка с мен.
+                    заявката ми и за връзка с мен. Запознат/а съм с{" "}
+                    <Link to="/politika-za-poveritelnost" className="underline hover:text-primary-deep">
+                      Политиката за поверителност
+                    </Link>
+                    .
                   </Label>
                 </div>
                 {errors.consent && <p className="text-xs text-destructive">{errors.consent}</p>}
