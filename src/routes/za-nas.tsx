@@ -108,7 +108,7 @@ function AboutPage() {
                 alt="Лекар разговаря с пациент в модерна светла клиника"
                 width={1280}
                 height={720}
-                className="h-full w-full object-cover aspect-video"
+                className="h-full w-full object-cover aspect-[4/3]"
               />
             </div>
           </div>
