@@ -126,12 +126,25 @@ function ServiceDetailPage() {
                 {service.overviewTitle}
               </h2>
               <div className="mt-4 space-y-4 text-muted-foreground leading-relaxed">
-                {service.overview.map((block, i) =>
-                  block.type === "paragraph" ? (
-                    <p key={i} className="whitespace-pre-line">
-                      {block.text}
-                    </p>
-                  ) : (
+                {service.overview.map((block, i) => {
+                  if (block.type === "paragraph") {
+                    return (
+                      <p key={i} className="whitespace-pre-line">
+                        {block.text}
+                      </p>
+                    );
+                  }
+                  if (block.type === "heading") {
+                    return (
+                      <h2
+                        key={i}
+                        className="text-2xl sm:text-3xl font-bold text-primary-deep pt-4"
+                      >
+                        {block.text}
+                      </h2>
+                    );
+                  }
+                  return (
                     <ul key={i} className="space-y-2">
                       {block.items.map((item, j) => (
                         <li key={j} className="flex gap-2">
@@ -140,8 +153,8 @@ function ServiceDetailPage() {
                         </li>
                       ))}
                     </ul>
-                  ),
-                )}
+                  );
+                })}
               </div>
             </div>
           </section>
