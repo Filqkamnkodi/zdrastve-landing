@@ -250,7 +250,20 @@ export const servicesData: Record<string, ServiceData> = {
     ],
   },
 
-  "ambulatoren-list-recepti": baseEntry("ambulatoren-list-recepti"),
+  "ambulatoren-list-recepti": {
+    ...baseEntry("ambulatoren-list-recepti"),
+    overviewTitle: "Нормативна основа",
+    overview: [
+      {
+        type: "paragraph",
+        text: "Издаването на медицинските документи „амбулаторен лист“ и „рецепти“ е регламентирано в Националния рамков договор и в Наредба 4 за реда на предписване и отпускане на лекарствени продукти",
+      },
+      {
+        type: "paragraph",
+        text: "\n",
+      },
+    ],
+  },
 
   "domashni-vizitacii": {
     ...baseEntry("domashni-vizitacii"),
