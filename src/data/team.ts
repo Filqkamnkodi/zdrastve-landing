@@ -6,9 +6,10 @@ const doctorMale = doctorMaleAsset.url;
 const doctorJunior = doctorJuniorAsset.url;
 const doctorThird = doctorThirdAsset.url;
 import nurseOneAsset from "@/assets/med-sestra-emilia-raynova.webp.asset.json";
-import nurseTwo from "@/assets/team-nurse-2.jpg";
+import nurseTwoAsset from "@/assets/med-feldsher-albena-mirova.webp.asset.json";
 
 const nurseOne = nurseOneAsset.url;
+const nurseTwo = nurseTwoAsset.url;
 
 export type TeamMember = {
   name: string;
