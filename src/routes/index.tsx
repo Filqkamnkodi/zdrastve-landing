@@ -139,7 +139,7 @@ function Hero() {
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(1200px 600px at 80% -10%, color-mix(in oklab, var(--primary-soft) 35%, transparent), transparent 60%), linear-gradient(180deg, var(--surface) 0%, white 100%)",
+            "radial-gradient(1200px 900px at 82% 48%, color-mix(in oklab, var(--primary-soft) 20%, transparent) 0%, transparent 55%), radial-gradient(700px 550px at 12% 85%, color-mix(in oklab, var(--primary-soft) 12%, transparent) 0%, transparent 60%), linear-gradient(180deg, var(--surface) 0%, white 100%)",
         }}
       />
       <div className="container-page grid lg:grid-cols-2 gap-12 lg:gap-16 py-16 lg:py-24 items-center">
