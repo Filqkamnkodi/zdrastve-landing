@@ -258,7 +258,7 @@ function ContactPage() {
                 Посетете ни в някой от нашите филиали в Шумен или Нови Пазар. Клиниките ни са разположени на леснодостъпни места с възможност за паркиране.
               </p>
               <a
-                href="https://www.google.com/maps"
+                href="https://maps.app.goo.gl/QDcEzNtrwyDPeT7j9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary mt-5 !py-2.5 !px-5 text-sm"
