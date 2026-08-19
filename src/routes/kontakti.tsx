@@ -139,7 +139,7 @@ function ContactPage() {
               <InfoCard icon={MapPin} title="Адрес">
                 <div className="space-y-1">
                   <p><strong>Шумен:</strong> ул. „Васил Друмев" 17</p>
-                  <p><strong>Нови Пазар:</strong> ул. „Цар Освободител“ № 37</p>
+                  <p><strong>Нови Пазар:</strong> ул. „Христо Ботев" 22</p>
                 </div>
                 <a href="#map" className="mt-2 inline-block font-medium text-primary hover:text-primary-deep text-xs">
                   Вижте на картата
