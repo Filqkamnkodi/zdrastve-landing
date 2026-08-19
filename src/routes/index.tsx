@@ -171,7 +171,7 @@ function Hero() {
           <div className="relative overflow-hidden rounded-[2rem] shadow-glow">
             <img
               src={heroImg}
-              alt="Лекар разговаря с пациент в модерна клиника"
+              alt="Сградата на Клиника Д-р Чолакови с табели Фамилен лекар и Имунизационен център"
               width={1664}
               height={1216}
               className="h-full w-full object-cover aspect-[4/3]"
