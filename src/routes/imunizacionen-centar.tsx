@@ -273,7 +273,7 @@ function ImmunizationCenterPage() {
                 Свържете се с нас за повече информация, консултация или записване на преглед.
               </p>
               <div className="mt-7 flex flex-wrap justify-center gap-3">
-                <a href="/#contact" className="btn-ghost">
+                <a href="tel:+359 886 011 166" className="btn-ghost">
                   <Phone className="h-4 w-4" /> Свържете се с нас
                 </a>
                 <a href="/#contact" className="btn-ghost">
