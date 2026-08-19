@@ -1,7 +1,7 @@
 import sickleave from "@/assets/service-sickleave.jpg";
 import emergency from "@/assets/service-emergency.jpg";
 import documents from "@/assets/service-documents.jpg";
-import pediatrics from "@/assets/service-pediatrics.jpg";
+import covidCert from "@/assets/service-covid-cert.jpg";
 import imaging from "@/assets/service-imaging.jpg";
 import immunization from "@/assets/service-immunization.jpg";
 import lab from "@/assets/service-lab.jpg";
@@ -38,7 +38,7 @@ export const servicesList: Service[] = [
     slug: "covid-19-vaccination-certificate",
     title: "Издаване на сертификат за ваксинация срещу КОВИД-19",
     desc: "Издаването на сертификат за ваксинация срещу КОВИД-19 се основава на споразумение на държавите-членки на Европейския съюз.",
-    image: pediatrics,
+    image: covidCert,
   },
   {
     slug: "medicinsko-svidetelstvo-mps",
