@@ -8,9 +8,13 @@ export function SiteFooter() {
       <div className="container-page py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <div className="flex items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-deep text-primary-foreground">
-              <HeartPulse className="h-5 w-5" />
-            </span>
+            <img
+              src={logoUrl}
+              alt="Клиника Д-р Чолакови"
+              width={56}
+              height={56}
+              className="h-14 w-14 object-contain"
+            />
             <span className="font-display text-base font-bold text-primary-deep whitespace-pre-line leading-tight">
               Клиника{"\n"}Д-р Чолакови
             </span>
