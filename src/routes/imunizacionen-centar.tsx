@@ -254,22 +254,12 @@ function ImmunizationCenterPage() {
               {doctors.map((d) => (
                 <article
                   key={d.name}
-                  className="card-soft rounded-[1.25rem] overflow-hidden animate-fade-up flex flex-col sm:flex-row"
+                  className="card-soft rounded-[1.25rem] p-6 animate-fade-up"
                 >
-                  <img
-                    src={d.image}
-                    alt={d.name}
-                    loading="lazy"
-                    width={800}
-                    height={800}
-                    className="h-56 w-full sm:h-auto sm:w-40 shrink-0 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-lg font-semibold text-primary-deep">{d.name}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                      {d.specialties}
-                    </p>
-                  </div>
+                  <h3 className="text-lg font-semibold text-primary-deep">{d.name}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                    {d.specialties}
+                  </p>
                 </article>
               ))}
             </div>
