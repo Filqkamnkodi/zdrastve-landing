@@ -27,6 +27,7 @@ export const pricingCategories: PriceCategory[] = [
       { name: "Ехография на млечни жлези", price: "23 евро" },
       { name: "Ехография на коремни органи", price: "33 евро" },
       { name: "Ехография на щитовидна жлеза", price: "23 евро" },
+      { name: "ЕКГ по желание", price: "10 евро" },
     ],
   },
   {
