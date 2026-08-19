@@ -1,5 +1,5 @@
 import sickleave from "@/assets/service-sickleave.jpg";
-import procedures from "@/assets/service-procedures.jpg";
+import emergency from "@/assets/service-emergency.jpg";
 import documents from "@/assets/service-documents.jpg";
 import pediatrics from "@/assets/service-pediatrics.jpg";
 import imaging from "@/assets/service-imaging.jpg";
@@ -26,7 +26,7 @@ export const servicesList: Service[] = [
     slug: "opl-i-speshna-pomosht",
     title: "ОПЛ и Спешна помощ",
     desc: "Задължения на ОПЛ по оказване на спешна медицинска помощ",
-    image: procedures,
+    image: emergency,
   },
   {
     slug: "detski-dobavki-socialni-pomoshti",
