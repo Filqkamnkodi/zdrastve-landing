@@ -23,7 +23,7 @@ import {
   Info,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
-import logoAsset from "@/assets/logo.png.asset.json";
+import logoUrl from "@/assets/logo.webp";
 import heroImg from "@/assets/hero-clinic.png";
 import teamImg from "@/assets/home-team-cholakovi.png";
 
@@ -484,7 +484,7 @@ function Footer() {
         <div>
           <div className="flex items-center gap-2">
             <img
-              src={logoAsset.url}
+              src={logoUrl}
               alt="Клиника Д-р Чолакови"
               width={56}
               height={56}
