@@ -132,8 +132,8 @@ function ContactPage() {
                 </a>
               </InfoCard>
               <InfoCard icon={Mail} title="Имейл">
-                <a href="mailto:cholakovaclinic@gmail.com" className="hover:text-primary-deep underline-offset-4 hover:underline">
-                  cholakovaclinic@gmail.com
+                <a href="mailto:contact@cholakoviclinic.bg" className="hover:text-primary-deep underline-offset-4 hover:underline">
+                  contact@cholakoviclinic.bg
                 </a>
               </InfoCard>
               <InfoCard icon={MapPin} title="Адрес">
