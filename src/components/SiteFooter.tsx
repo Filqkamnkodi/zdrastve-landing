@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { HeartPulse, Facebook, Instagram, Linkedin, Phone, Mail, MapPin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Phone, Mail, MapPin } from "lucide-react";
+import logoUrl from "@/assets/logo.webp";
 
 export function SiteFooter() {
   return (
