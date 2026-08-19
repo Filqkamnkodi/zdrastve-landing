@@ -13,8 +13,6 @@ import {
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import heroImg from "@/assets/immunization-hero.jpg";
-import doctorMale from "@/assets/doctor-cholakov.jpg";
-import doctorFemale from "@/assets/doctor-cholakova.jpg";
 
 export const Route = createFileRoute("/imunizacionen-centar")({
   head: () => ({
