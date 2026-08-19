@@ -6,6 +6,7 @@ import mpsCert from "@/assets/service-mps-cert.jpg";
 import immunization from "@/assets/service-immunization.jpg";
 import marriageCert from "@/assets/service-marriage-cert.jpg";
 import lab from "@/assets/service-lab.jpg";
+import documentsCert from "@/assets/service-documents-cert.jpg";
 import homevisit from "@/assets/service-homevisit.jpg";
 import prevention from "@/assets/service-prevention.jpg";
 
@@ -57,7 +58,7 @@ export const servicesList: Service[] = [
     slug: "ambulatoren-list-recepti",
     title: "Издаване на медицински документи – амбулаторен лист, рецепти",
     desc: "Издаването на медицинските документи „амбулаторен лист“ и „рецепти“ е регламентирано в Националния рамков договор и в Наредба 4 за реда на предписване и отпускане на лекарствени продукти",
-    image: lab,
+    image: documentsCert,
   },
   {
     slug: "domashni-vizitacii",
