@@ -127,24 +127,30 @@ function ContactPage() {
           <div className="container-page grid lg:grid-cols-2 gap-8 items-start">
             <div className="grid sm:grid-cols-2 gap-4 animate-fade-up">
               <InfoCard icon={Phone} title="Телефон">
-                <a href="tel:" className="hover:text-primary-deep underline-offset-4 hover:underline">
-                  Добавете телефонен номер
+                <a href="tel:+359886011166" className="hover:text-primary-deep underline-offset-4 hover:underline">
+                  +359 886 011 166
                 </a>
               </InfoCard>
               <InfoCard icon={Mail} title="Имейл">
-                <a href="mailto:" className="hover:text-primary-deep underline-offset-4 hover:underline">
-                  Добавете имейл адрес
+                <a href="mailto:cholakovaclinic@gmail.com" className="hover:text-primary-deep underline-offset-4 hover:underline">
+                  cholakovaclinic@gmail.com
                 </a>
               </InfoCard>
               <InfoCard icon={MapPin} title="Адрес">
-                <p>Добавете пълния адрес на клиниката</p>
-                <a href="#map" className="mt-1 inline-block font-medium text-primary hover:text-primary-deep">
+                <div className="space-y-1">
+                  <p><strong>Шумен:</strong> ул. „Цар Иван Александър“ № 46А</p>
+                  <p><strong>Нови Пазар:</strong> ул. „Цар Освободител“ № 37</p>
+                </div>
+                <a href="#map" className="mt-2 inline-block font-medium text-primary hover:text-primary-deep text-xs">
                   Вижте на картата
                 </a>
               </InfoCard>
               <InfoCard icon={Clock} title="Работно време">
-                <p>Понеделник – Петък: добавете работно време</p>
-                <p>Събота и Неделя: добавете работно време или „Почивни дни“</p>
+                <div className="space-y-1">
+                  <p>Пон. – Петък: 08:00 – 18:00</p>
+                  <p>Събота: 08:30 – 13:00</p>
+                  <p>Неделя: Почивен ден</p>
+                </div>
               </InfoCard>
             </div>
 
