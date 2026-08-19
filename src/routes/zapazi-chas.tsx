@@ -345,7 +345,7 @@ function AppointmentPage() {
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                   За по-бърза връзка можете да се свържете с нас по телефон.
                 </p>
-                <a href="tel:" className="btn-primary mt-4 !py-2.5 !px-5 text-sm">
+                <a href="tel:+359 886 011 166" className="btn-primary mt-4 !py-2.5 !px-5 text-sm">
                   <Phone className="h-4 w-4" /> Обадете се
                 </a>
               </div>
