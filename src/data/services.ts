@@ -1,4 +1,4 @@
-import consultations from "@/assets/service-consultations.jpg";
+import sickleave from "@/assets/service-sickleave.jpg";
 import procedures from "@/assets/service-procedures.jpg";
 import documents from "@/assets/service-documents.jpg";
 import pediatrics from "@/assets/service-pediatrics.jpg";
@@ -20,7 +20,7 @@ export const servicesList: Service[] = [
     slug: "bolnichen-list",
     title: "Издаване на болничен лист",
     desc: "Болничен лист се издава на пациенти, прегледани от лекар в амбулаторията, при което е установена невъзможност пациентът да продължи работата си поради заболяване/злополука/изследване. ",
-    image: consultations,
+    image: sickleave,
   },
   {
     slug: "opl-i-speshna-pomosht",
