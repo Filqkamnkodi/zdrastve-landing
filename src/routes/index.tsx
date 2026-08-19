@@ -23,6 +23,7 @@ import {
   Info,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
+import logoAsset from "@/assets/logo.png.asset.json";
 import heroImg from "@/assets/hero-clinic.png";
 import teamImg from "@/assets/home-team-cholakovi.png";
 
