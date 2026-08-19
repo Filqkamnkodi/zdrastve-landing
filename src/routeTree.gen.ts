@@ -16,6 +16,7 @@ import { Route as ObshtiUsloviyaRouteImport } from './routes/obshti-usloviya'
 import { Route as KontaktiRouteImport } from './routes/kontakti'
 import { Route as ImunizacionenCentarRouteImport } from './routes/imunizacionen-centar'
 import { Route as ChestoZadavaniVaprosiRouteImport } from './routes/chesto-zadavani-vaprosi'
+import { Route as CeniRouteImport } from './routes/ceni'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
@@ -55,6 +56,11 @@ const ChestoZadavaniVaprosiRoute = ChestoZadavaniVaprosiRouteImport.update({
   path: '/chesto-zadavani-vaprosi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CeniRoute = CeniRouteImport.update({
+  id: '/ceni',
+  path: '/ceni',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -73,6 +79,7 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ceni': typeof CeniRoute
   '/chesto-zadavani-vaprosi': typeof ChestoZadavaniVaprosiRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
   '/kontakti': typeof KontaktiRoute
@@ -85,6 +92,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ceni': typeof CeniRoute
   '/chesto-zadavani-vaprosi': typeof ChestoZadavaniVaprosiRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
   '/kontakti': typeof KontaktiRoute
@@ -98,6 +106,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ceni': typeof CeniRoute
   '/chesto-zadavani-vaprosi': typeof ChestoZadavaniVaprosiRoute
   '/imunizacionen-centar': typeof ImunizacionenCentarRoute
   '/kontakti': typeof KontaktiRoute
@@ -112,6 +121,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/ceni'
     | '/chesto-zadavani-vaprosi'
     | '/imunizacionen-centar'
     | '/kontakti'
@@ -124,6 +134,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/ceni'
     | '/chesto-zadavani-vaprosi'
     | '/imunizacionen-centar'
     | '/kontakti'
@@ -136,6 +147,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/ceni'
     | '/chesto-zadavani-vaprosi'
     | '/imunizacionen-centar'
     | '/kontakti'
@@ -149,6 +161,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CeniRoute: typeof CeniRoute
   ChestoZadavaniVaprosiRoute: typeof ChestoZadavaniVaprosiRoute
   ImunizacionenCentarRoute: typeof ImunizacionenCentarRoute
   KontaktiRoute: typeof KontaktiRoute
@@ -211,6 +224,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ChestoZadavaniVaprosiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ceni': {
+      id: '/ceni'
+      path: '/ceni'
+      fullPath: '/ceni'
+      preLoaderRoute: typeof CeniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -237,6 +257,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CeniRoute: CeniRoute,
   ChestoZadavaniVaprosiRoute: ChestoZadavaniVaprosiRoute,
   ImunizacionenCentarRoute: ImunizacionenCentarRoute,
   KontaktiRoute: KontaktiRoute,
