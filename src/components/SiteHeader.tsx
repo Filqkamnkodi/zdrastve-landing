@@ -52,7 +52,7 @@ export function SiteHeader() {
       <div className="container-page flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <img
-            src={logoUrl}
+            src={logoAsset.url}
             alt="Клиника Д-р Чолакови"
             width={48}
             height={48}
