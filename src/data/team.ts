@@ -1,15 +1,10 @@
-import doctorMaleAsset from "@/assets/doctor-cholakov-senior.webp.asset.json";
-import doctorJuniorAsset from "@/assets/doctor-cholakov-junior.webp.asset.json";
-import doctorThirdAsset from "@/assets/doctor-simana-ivanova.webp.asset.json";
+import doctorMale from "@/assets/doctor-cholakov-senior.webp";
+import doctorJunior from "@/assets/doctor-cholakov-junior.webp";
+import doctorThird from "@/assets/doctor-simana-ivanova.webp";
 
-const doctorMale = doctorMaleAsset.url;
-const doctorJunior = doctorJuniorAsset.url;
-const doctorThird = doctorThirdAsset.url;
-import nurseOneAsset from "@/assets/med-sestra-emilia-raynova.webp.asset.json";
-import nurseTwoAsset from "@/assets/med-feldsher-albena-mirova.webp.asset.json";
+import nurseOne from "@/assets/med-sestra-emilia-raynova.webp";
+import nurseTwo from "@/assets/med-feldsher-albena-mirova.webp";
 
-const nurseOne = nurseOneAsset.url;
-const nurseTwo = nurseTwoAsset.url;
 
 export type TeamMember = {
   name: string;

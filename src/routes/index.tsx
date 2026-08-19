@@ -24,8 +24,7 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import heroImg from "@/assets/hero-clinic.jpg";
-import teamImgAsset from "@/assets/home-team-cholakovi.webp.asset.json";
-const teamImg = teamImgAsset.url;
+import teamImg from "@/assets/home-team-cholakovi.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({

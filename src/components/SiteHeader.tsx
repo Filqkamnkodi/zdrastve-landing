@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { CalendarCheck, Menu, X } from "lucide-react";
-import logoAsset from "@/assets/logo.png.asset.json";
+import logoUrl from "@/assets/logo.png";
 
 const navItems = [
   { to: "/services", label: "Услуги" },
@@ -52,7 +52,7 @@ export function SiteHeader() {
       <div className="container-page flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <img
-            src={logoAsset.url}
+            src={logoUrl}
             alt="Клиника Д-р Чолакови"
             width={48}
             height={48}
