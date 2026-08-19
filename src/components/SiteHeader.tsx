@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { CalendarCheck, Menu, X } from "lucide-react";
-import logoUrl from "@/assets/logo.png";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 const navItems = [
   { to: "/services", label: "Услуги" },
