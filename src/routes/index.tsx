@@ -23,6 +23,7 @@ import {
   Info,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
+import logoAsset from "@/assets/logo.png.asset.json";
 import heroImg from "@/assets/hero-clinic.png";
 import teamImg from "@/assets/home-team-cholakovi.png";
 
@@ -482,9 +483,13 @@ function Footer() {
       <div className="container-page py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <div className="flex items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-deep text-primary-foreground">
-              <HeartPulse className="h-5 w-5" />
-            </span>
+            <img
+              src={logoAsset.url}
+              alt="Клиника Д-р Чолакови"
+              width={36}
+              height={36}
+              className="h-9 w-9 object-contain rounded-xl bg-primary-deep p-1.5"
+            />
             <span className="font-display text-base font-bold text-primary-deep whitespace-pre-line leading-tight">
               Клиника{"\n"}Д-р Чолакови
             </span>
