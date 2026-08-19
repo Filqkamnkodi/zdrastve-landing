@@ -147,9 +147,9 @@ function ContactPage() {
               </InfoCard>
               <InfoCard icon={Clock} title="Работно време">
                 <div className="space-y-1">
-                  <p>Пон. – Петък: 08:00 – 18:00</p>
-                  <p>Събота: 08:30 – 13:00</p>
-                  <p>Неделя: Почивен ден</p>
+                  <p>Пон. – Четв.: 08:00 – 16:00</p>
+                  <p>Пт: 08:30 – 13:00</p>
+                  <p>Сб-Нд: Почивен ден</p>
                 </div>
               </InfoCard>
             </div>
