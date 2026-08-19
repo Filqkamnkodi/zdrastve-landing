@@ -9,6 +9,7 @@ import lab from "@/assets/service-lab.jpg";
 import documentsCert from "@/assets/service-documents-cert.jpg";
 import homevisit from "@/assets/service-homevisit.jpg";
 import prevention from "@/assets/service-prevention.jpg";
+import referral from "@/assets/service-referral.jpg";
 
 export type Service = {
   slug: string;
