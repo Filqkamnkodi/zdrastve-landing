@@ -204,9 +204,9 @@ function AboutPage() {
                 <Link to="/zapazi-chas" className="btn-ghost">
                   <CalendarCheck className="h-4 w-4" /> Запази час
                 </Link>
-                <a href="/#contact" className="btn-ghost">
+                <Link to="/kontakti" className="btn-ghost">
                   <Phone className="h-4 w-4" /> Контакти
-                </a>
+                </Link>
               </div>
             </div>
           </div>
