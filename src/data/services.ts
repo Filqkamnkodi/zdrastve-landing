@@ -4,6 +4,7 @@ import documents from "@/assets/service-documents.jpg";
 import covidCert from "@/assets/service-covid-cert.jpg";
 import mpsCert from "@/assets/service-mps-cert.jpg";
 import immunization from "@/assets/service-immunization.jpg";
+import marriageCert from "@/assets/service-marriage-cert.jpg";
 import lab from "@/assets/service-lab.jpg";
 import homevisit from "@/assets/service-homevisit.jpg";
 import prevention from "@/assets/service-prevention.jpg";
@@ -50,7 +51,7 @@ export const servicesList: Service[] = [
     slug: "medicinsko-svidetelstvo-za-brak",
     title: "Медицинско свидетелство за брак",
     desc: "Издаването на медицинско свидетелство за граждански брак се регламентира от Инструкция № 1 за реда за освидетелстване при встъпване в брак.",
-    image: immunization,
+    image: marriageCert,
   },
   {
     slug: "ambulatoren-list-recepti",
