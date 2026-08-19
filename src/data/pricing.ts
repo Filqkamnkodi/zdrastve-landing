@@ -13,9 +13,9 @@ export type PriceCategory = {
 export const pricingCategories: PriceCategory[] = [
   {
     id: "kategoriya-1",
-    title: "Категория 1",
+    title: "Прегледи и консултации",
     items: [
-      { name: "Консултация / преглед", note: "Кратка допълнителна информация", price: "XX лв." },
+      { name: "Първичен медицински преглед", price: "30 евро" },
       { name: "Медицинска услуга", price: "XX лв." },
       { name: "Медицинска процедура", note: "Кратка допълнителна информация", price: "XX лв." },
     ],
