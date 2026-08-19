@@ -8,8 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import heroImgAsset from "@/assets/about-team-cholakovi.webp.asset.json";
-const heroImg = heroImgAsset.url;
+import heroImg from "@/assets/about-team-cholakovi.webp";
 import { team } from "@/data/team";
 
 
