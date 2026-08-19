@@ -486,9 +486,9 @@ function Footer() {
             <img
               src={logoAsset.url}
               alt="Клиника Д-р Чолакови"
-              width={36}
-              height={36}
-              className="h-9 w-9 object-contain rounded-xl bg-primary-deep p-1.5"
+              width={56}
+              height={56}
+              className="h-14 w-14 object-contain"
             />
             <span className="font-display text-base font-bold text-primary-deep whitespace-pre-line leading-tight">
               Клиника{"\n"}Д-р Чолакови
