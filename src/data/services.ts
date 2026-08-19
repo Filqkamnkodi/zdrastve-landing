@@ -9,6 +9,7 @@ import lab from "@/assets/service-lab.jpg";
 import documentsCert from "@/assets/service-documents-cert.jpg";
 import homevisit from "@/assets/service-homevisit.jpg";
 import prevention from "@/assets/service-prevention.jpg";
+import referral from "@/assets/service-referral.jpg";
 
 export type Service = {
   slug: string;
@@ -70,6 +71,6 @@ export const servicesList: Service[] = [
     slug: "napravlenie",
     title: "Издаване на направление",
     desc: "Направления за консултация, изследване, хоспитализация, явяване на ЛКК и ТЕЛК се издават по преценка на ОПЛ след извършен преглед на здравноосигурено лице и установяване на проблем, който изисква консултация/изследване/хоспитализация/преглед от лекарска консултативна комисия (ЛКК). ",
-    image: prevention,
+    image: referral,
   },
 ];
