@@ -44,7 +44,7 @@ export const servicesList: Service[] = [
     slug: "medicinsko-svidetelstvo-mps",
     title: "Медицинско свидетелство за управление на МПС",
     desc: "Административна процедура „Издаване на медицинско свидетелство за физическа годност за водач на МПС“",
-    image: imaging,
+    image: mpsCert,
   },
   {
     slug: "medicinsko-svidetelstvo-za-brak",
