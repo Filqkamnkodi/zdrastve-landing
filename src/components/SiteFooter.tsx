@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import logoUrl from "@/assets/logo.webp";
 
 export function SiteFooter() {
@@ -22,13 +22,6 @@ export function SiteFooter() {
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
             Модерна медицинска клиника, посветена на здравето и комфорта на всеки пациент.
           </p>
-          <div className="mt-5 flex gap-2">
-            {[Facebook, Instagram, Linkedin].map((Icon, i) => (
-              <a key={i} href="#" aria-label="Социална мрежа" className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted-foreground hover:text-primary-deep hover:border-primary transition">
-                <Icon className="h-4 w-4" />
-              </a>
-            ))}
-          </div>
         </div>
 
         <div>
