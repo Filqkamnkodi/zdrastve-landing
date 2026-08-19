@@ -2,7 +2,7 @@ import sickleave from "@/assets/service-sickleave.jpg";
 import emergency from "@/assets/service-emergency.jpg";
 import documents from "@/assets/service-documents.jpg";
 import covidCert from "@/assets/service-covid-cert.jpg";
-import imaging from "@/assets/service-imaging.jpg";
+import mpsCert from "@/assets/service-mps-cert.jpg";
 import immunization from "@/assets/service-immunization.jpg";
 import lab from "@/assets/service-lab.jpg";
 import homevisit from "@/assets/service-homevisit.jpg";
@@ -44,7 +44,7 @@ export const servicesList: Service[] = [
     slug: "medicinsko-svidetelstvo-mps",
     title: "Медицинско свидетелство за управление на МПС",
     desc: "Административна процедура „Издаване на медицинско свидетелство за физическа годност за водач на МПС“",
-    image: imaging,
+    image: mpsCert,
   },
   {
     slug: "medicinsko-svidetelstvo-za-brak",
