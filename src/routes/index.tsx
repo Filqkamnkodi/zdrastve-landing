@@ -179,15 +179,6 @@ function Hero() {
             />
           </div>
 
-          <div className="hidden sm:flex absolute -left-6 bottom-10 card-soft p-4 pr-5 items-center gap-3 animate-float">
-            <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary-soft/30 text-primary-deep">
-              <HeartPulse className="h-5 w-5" />
-            </span>
-            <div>
-              <div className="text-sm font-semibold">Грижа 24/7</div>
-              <div className="text-xs text-muted-foreground">Спешни консултации</div>
-            </div>
-          </div>
 
         </div>
       </div>
