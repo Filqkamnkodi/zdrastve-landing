@@ -127,9 +127,14 @@ function ContactPage() {
           <div className="container-page grid lg:grid-cols-2 gap-8 items-start">
             <div className="grid sm:grid-cols-2 gap-4 animate-fade-up">
               <InfoCard icon={Phone} title="Телефон">
-                <a href="tel:+359886011166" className="hover:text-primary-deep underline-offset-4 hover:underline">
-                  +359 886 011 166
-                </a>
+                <div className="flex flex-col gap-1">
+                  <a href="tel:+359886011166" className="hover:text-primary-deep underline-offset-4 hover:underline">
+                    +359 886 011 166
+                  </a>
+                  <a href="tel:+359885646724" className="hover:text-primary-deep underline-offset-4 hover:underline">
+                    +359 885 646 724
+                  </a>
+                </div>
               </InfoCard>
               <InfoCard icon={Mail} title="Имейл">
                 <a href="mailto:contact@cholakoviclinic.bg" className="hover:text-primary-deep underline-offset-4 hover:underline">
