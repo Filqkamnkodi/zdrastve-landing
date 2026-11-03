@@ -1,0 +1,23 @@
+import { z } from "zod";
+
+export const patientSchema = z.object({
+  name: z.string().trim().min(2, "Моля, въведете име и фамилия.").max(100, "Името е твърде дълго."),
+  phone: z
+    .string()
+    .trim()
+    .min(6, "Моля, въведете валиден телефонен номер.")
+    .max(30, "Телефонният номер е твърде дълъг.")
+    .regex(/^[0-9+()\s-]+$/, "Телефонният номер съдържа непозволени символи."),
+  email: z.union([z.string().trim().email("Моля, въведете валиден имейл адрес.").max(255), z.literal("")]),
+  patient: z.enum(["Възрастен", "Дете"], { errorMap: () => ({ message: "Моля, изберете пациент." }) }),
+  service: z.string().trim().min(1, "Моля, изберете медицинска услуга.").max(120),
+  note: z.string().trim().max(300, "Бележката е твърде дълга (до 300 символа).").optional().default(""),
+});
+
+export const bookingSchema = patientSchema.extend({
+  doctorId: z.enum(["cholakov-senior", "cholakov-junior"]),
+  start: z.number().int().positive(),
+  website: z.string().max(200).optional().default(""), // honeypot
+});
+
+export type BookingInput = z.input<typeof bookingSchema>;
