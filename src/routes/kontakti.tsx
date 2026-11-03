@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { locations } from "@/data/booking";
 
 export const Route = createFileRoute("/kontakti")({
   head: () => ({
@@ -127,13 +128,17 @@ function ContactPage() {
           <div className="container-page grid lg:grid-cols-2 gap-8 items-start">
             <div className="grid sm:grid-cols-2 gap-4 animate-fade-up">
               <InfoCard icon={Phone} title="Телефон">
-                <div className="flex flex-col gap-1">
-                  <a href="tel:+359886011166" className="hover:text-primary-deep underline-offset-4 hover:underline">
-                    +359 886 011 166
-                  </a>
-                  <a href="tel:+359885646724" className="hover:text-primary-deep underline-offset-4 hover:underline">
-                    +359 885 646 724
-                  </a>
+                <div className="space-y-2">
+                  {Object.values(locations).map((loc) => (
+                    <div key={loc.id}>
+                      <p className="font-semibold text-primary-deep">{loc.city}</p>
+                      {loc.phones.map((p) => (
+                        <a key={p} href={`tel:${p.replace(/\s/g, "")}`} className="block hover:text-primary-deep underline-offset-4 hover:underline">
+                          {p}
+                        </a>
+                      ))}
+                    </div>
+                  ))}
                 </div>
               </InfoCard>
               <InfoCard icon={Mail} title="Имейл">
@@ -151,10 +156,15 @@ function ContactPage() {
                 </a>
               </InfoCard>
               <InfoCard icon={Clock} title="Работно време">
-                <div className="space-y-1">
-                  <p>Пон. – Четв.: 08:00 – 16:00</p>
-                  <p>Пт: 08:30 – 13:00</p>
-                  <p>Сб-Нд: Почивен ден</p>
+                <div className="space-y-2">
+                  {Object.values(locations).map((loc) => (
+                    <div key={loc.id}>
+                      <p className="font-semibold text-primary-deep">{loc.city}</p>
+                      {loc.hoursLines.map((l) => (
+                        <p key={l}>{l}</p>
+                      ))}
+                    </div>
+                  ))}
                 </div>
               </InfoCard>
             </div>

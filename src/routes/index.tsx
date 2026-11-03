@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { locations as bookingLocations } from "@/data/booking";
 import {
   Stethoscope,
   FileText,
@@ -85,15 +86,15 @@ const locations = [
   {
     name: "Клиника Д-р Чолакови - Шумен",
     address: 'ул. "Васил Друмев" 17, 9700',
-    hours: "Пон–Четв: 8:00 – 16:30\nПетък: 8:00 - 12:30\nСб-Нд: Почивни дни",
-    phone: "+359 886 011 166\n+359 885 646 724",
+    hours: bookingLocations.shumen.hoursLines.join("\n"),
+    phone: bookingLocations.shumen.phones.join("\n"),
     mapLink: "https://maps.app.goo.gl/99wj7gqCuKW8s2rA8",
   },
   {
     name: "Клиника Д-р Чолакови - Нови Пазар",
     address: "ул. Христо Ботев 22, каб. номер 3 и манипулационна номер 4",
-    hours: "Пон–Четв: 8:00 – 16:00\nПетък: 8:00-13:00\nСб-Нд: Почивни дни",
-    phone: "+359 896 600 290",
+    hours: bookingLocations["novi-pazar"].hoursLines.join("\n"),
+    phone: bookingLocations["novi-pazar"].phones.join("\n"),
     mapLink: "https://maps.app.goo.gl/6JiNcLeXx1AZzr1g6",
   },
 ];
