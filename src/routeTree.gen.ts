@@ -9,51 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ZapaziChasRouteImport } from './routes/zapazi-chas'
-import { Route as ZaNasRouteImport } from './routes/za-nas'
-import { Route as PolitikaZaPoveritelnostRouteImport } from './routes/politika-za-poveritelnost'
-import { Route as ObshtiUsloviyaRouteImport } from './routes/obshti-usloviya'
-import { Route as KontaktiRouteImport } from './routes/kontakti'
-import { Route as ImunizacionenCentarRouteImport } from './routes/imunizacionen-centar'
-import { Route as ChestoZadavaniVaprosiRouteImport } from './routes/chesto-zadavani-vaprosi'
-import { Route as CeniRouteImport } from './routes/ceni'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CeniRouteImport } from './routes/ceni'
+import { Route as ChestoZadavaniVaprosiRouteImport } from './routes/chesto-zadavani-vaprosi'
+import { Route as ImunizacionenCentarRouteImport } from './routes/imunizacionen-centar'
+import { Route as KontaktiRouteImport } from './routes/kontakti'
+import { Route as ObshtiUsloviyaRouteImport } from './routes/obshti-usloviya'
+import { Route as PolitikaZaPoveritelnostRouteImport } from './routes/politika-za-poveritelnost'
+import { Route as ZaNasRouteImport } from './routes/za-nas'
+import { Route as ZapaziChasRouteImport } from './routes/zapazi-chas'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
-const ZapaziChasRoute = ZapaziChasRouteImport.update({
-  id: '/zapazi-chas',
-  path: '/zapazi-chas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ZaNasRoute = ZaNasRouteImport.update({
-  id: '/za-nas',
-  path: '/za-nas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PolitikaZaPoveritelnostRoute = PolitikaZaPoveritelnostRouteImport.update({
-  id: '/politika-za-poveritelnost',
-  path: '/politika-za-poveritelnost',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ObshtiUsloviyaRoute = ObshtiUsloviyaRouteImport.update({
-  id: '/obshti-usloviya',
-  path: '/obshti-usloviya',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KontaktiRoute = KontaktiRouteImport.update({
-  id: '/kontakti',
-  path: '/kontakti',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImunizacionenCentarRoute = ImunizacionenCentarRouteImport.update({
-  id: '/imunizacionen-centar',
-  path: '/imunizacionen-centar',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ChestoZadavaniVaprosiRoute = ChestoZadavaniVaprosiRouteImport.update({
-  id: '/chesto-zadavani-vaprosi',
-  path: '/chesto-zadavani-vaprosi',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CeniRoute = CeniRouteImport.update({
@@ -61,9 +31,39 @@ const CeniRoute = CeniRouteImport.update({
   path: '/ceni',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ChestoZadavaniVaprosiRoute = ChestoZadavaniVaprosiRouteImport.update({
+  id: '/chesto-zadavani-vaprosi',
+  path: '/chesto-zadavani-vaprosi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImunizacionenCentarRoute = ImunizacionenCentarRouteImport.update({
+  id: '/imunizacionen-centar',
+  path: '/imunizacionen-centar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktiRoute = KontaktiRouteImport.update({
+  id: '/kontakti',
+  path: '/kontakti',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ObshtiUsloviyaRoute = ObshtiUsloviyaRouteImport.update({
+  id: '/obshti-usloviya',
+  path: '/obshti-usloviya',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolitikaZaPoveritelnostRoute = PolitikaZaPoveritelnostRouteImport.update({
+  id: '/politika-za-poveritelnost',
+  path: '/politika-za-poveritelnost',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZaNasRoute = ZaNasRouteImport.update({
+  id: '/za-nas',
+  path: '/za-nas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZapaziChasRoute = ZapaziChasRouteImport.update({
+  id: '/zapazi-chas',
+  path: '/zapazi-chas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
@@ -175,53 +175,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/zapazi-chas': {
-      id: '/zapazi-chas'
-      path: '/zapazi-chas'
-      fullPath: '/zapazi-chas'
-      preLoaderRoute: typeof ZapaziChasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/za-nas': {
-      id: '/za-nas'
-      path: '/za-nas'
-      fullPath: '/za-nas'
-      preLoaderRoute: typeof ZaNasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/politika-za-poveritelnost': {
-      id: '/politika-za-poveritelnost'
-      path: '/politika-za-poveritelnost'
-      fullPath: '/politika-za-poveritelnost'
-      preLoaderRoute: typeof PolitikaZaPoveritelnostRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/obshti-usloviya': {
-      id: '/obshti-usloviya'
-      path: '/obshti-usloviya'
-      fullPath: '/obshti-usloviya'
-      preLoaderRoute: typeof ObshtiUsloviyaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/kontakti': {
-      id: '/kontakti'
-      path: '/kontakti'
-      fullPath: '/kontakti'
-      preLoaderRoute: typeof KontaktiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/imunizacionen-centar': {
-      id: '/imunizacionen-centar'
-      path: '/imunizacionen-centar'
-      fullPath: '/imunizacionen-centar'
-      preLoaderRoute: typeof ImunizacionenCentarRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/chesto-zadavani-vaprosi': {
-      id: '/chesto-zadavani-vaprosi'
-      path: '/chesto-zadavani-vaprosi'
-      fullPath: '/chesto-zadavani-vaprosi'
-      preLoaderRoute: typeof ChestoZadavaniVaprosiRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ceni': {
@@ -231,11 +189,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CeniRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/chesto-zadavani-vaprosi': {
+      id: '/chesto-zadavani-vaprosi'
+      path: '/chesto-zadavani-vaprosi'
+      fullPath: '/chesto-zadavani-vaprosi'
+      preLoaderRoute: typeof ChestoZadavaniVaprosiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/imunizacionen-centar': {
+      id: '/imunizacionen-centar'
+      path: '/imunizacionen-centar'
+      fullPath: '/imunizacionen-centar'
+      preLoaderRoute: typeof ImunizacionenCentarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakti': {
+      id: '/kontakti'
+      path: '/kontakti'
+      fullPath: '/kontakti'
+      preLoaderRoute: typeof KontaktiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/obshti-usloviya': {
+      id: '/obshti-usloviya'
+      path: '/obshti-usloviya'
+      fullPath: '/obshti-usloviya'
+      preLoaderRoute: typeof ObshtiUsloviyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politika-za-poveritelnost': {
+      id: '/politika-za-poveritelnost'
+      path: '/politika-za-poveritelnost'
+      fullPath: '/politika-za-poveritelnost'
+      preLoaderRoute: typeof PolitikaZaPoveritelnostRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/za-nas': {
+      id: '/za-nas'
+      path: '/za-nas'
+      fullPath: '/za-nas'
+      preLoaderRoute: typeof ZaNasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zapazi-chas': {
+      id: '/zapazi-chas'
+      path: '/zapazi-chas'
+      fullPath: '/zapazi-chas'
+      preLoaderRoute: typeof ZapaziChasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
