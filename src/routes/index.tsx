@@ -91,7 +91,7 @@ const locations = [
   },
   {
     name: "Клиника Д-р Чолакови - Нови Пазар",
-    address: "ул. Христо Ботев 22, каб. номер 3 и кабинет 14",
+    address: "ул. Христо Ботев 22, каб. номер 4 и кабинет 14",
     hours: bookingLocations["novi-pazar"].hoursLines.join("\n"),
     phone: bookingLocations["novi-pazar"].phones.join("\n"),
     mapLink: "https://maps.app.goo.gl/6JiNcLeXx1AZzr1g6",
