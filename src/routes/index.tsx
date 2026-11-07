@@ -374,10 +374,6 @@ function About() {
             подход и комфорт за всеки пациент.
           </p>
 
-          <div className="mt-6">
-            <div className="text-xs text-muted-foreground mt-1">доволни пациенти през годините</div>
-          </div>
-
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-5">
             {stats.map((s) => (
               <div key={s.label} className="card-soft p-5">
