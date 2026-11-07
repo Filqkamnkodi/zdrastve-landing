@@ -375,7 +375,6 @@ function About() {
           </p>
 
           <div className="mt-6">
-            <div className="text-3xl font-bold text-primary-deep font-display">15K+</div>
             <div className="text-xs text-muted-foreground mt-1">доволни пациенти през годините</div>
           </div>
 
