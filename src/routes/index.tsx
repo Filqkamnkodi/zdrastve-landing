@@ -362,25 +362,8 @@ function WhyUs() {
 function About() {
   return (
     <section id="about" className="py-20 lg:py-28 bg-surface">
-      <div className="container-page grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div className="relative">
-          <div className="overflow-hidden rounded-[2rem] shadow-card">
-            <img
-              src={teamImg}
-              alt="Екипът на клиника Д-р Чолакови"
-              width={1408}
-              height={1408}
-              loading="lazy"
-              className="h-full w-full object-cover aspect-square"
-            />
-          </div>
-          <div className="hidden md:block absolute -bottom-6 -right-6 card-soft p-5 max-w-[200px]">
-            <div className="text-3xl font-bold text-primary-deep font-display">15K+</div>
-            <div className="text-xs text-muted-foreground mt-1">доволни пациенти през годините</div>
-          </div>
-        </div>
-
-        <div>
+      <div className="container-page">
+        <div className="mx-auto max-w-4xl">
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">За нас</div>
           <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-primary-deep">
             Здравна грижа, която поставя пациента в центъра
@@ -391,7 +374,12 @@ function About() {
             подход и комфорт за всеки пациент.
           </p>
 
-          <div className="mt-8 grid grid-cols-2 gap-5">
+          <div className="mt-6">
+            <div className="text-3xl font-bold text-primary-deep font-display">15K+</div>
+            <div className="text-xs text-muted-foreground mt-1">доволни пациенти през годините</div>
+          </div>
+
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-5">
             {stats.map((s) => (
               <div key={s.label} className="card-soft p-5">
                 <div className="text-2xl font-bold text-primary-deep font-display">{s.value}</div>
