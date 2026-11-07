@@ -24,7 +24,6 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import logoUrl from "@/assets/logo.webp";
-import heroImg from "@/assets/hero-clinic.png";
 import teamImg from "@/assets/home-team-cholakovi.png";
 
 export const Route = createFileRoute("/")({
@@ -171,10 +170,10 @@ function Hero() {
         <div className="relative">
           <div className="relative overflow-hidden rounded-[2rem] shadow-glow">
             <img
-              src={heroImg}
-              alt="Сградата на Клиника Д-р Чолакови с табели Фамилен лекар и Имунизационен център"
-              width={1664}
-              height={1216}
+              src={teamImg}
+              alt="Екипът на клиника Д-р Чолакови"
+              width={1408}
+              height={1408}
               className="h-full w-full object-cover aspect-[4/3]"
             />
           </div>
