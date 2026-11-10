@@ -162,27 +162,45 @@ function AboutPage() {
                 <AccordionItem
                   key={m.name}
                   value={m.name}
-                  className="card-soft rounded-[1.25rem] overflow-hidden border-b-0 animate-fade-up transition-all hover:-translate-y-1 hover:shadow-soft"
+                  className="card-soft flex flex-col rounded-[1.25rem] overflow-hidden border-b-0 animate-fade-up transition-all hover:-translate-y-1 hover:shadow-soft"
                 >
-                  <img
-                    src={m.image}
-                    alt={m.name}
-                    loading="lazy"
-                    width={800}
-                    height={800}
-                    className="aspect-square w-full object-cover"
-                  />
-                  <div className="px-5 pt-4">
+                  {m.image ? (
+                    <img
+                      src={m.image}
+                      alt={m.name}
+                      loading="lazy"
+                      width={800}
+                      height={800}
+                      className="aspect-square w-full object-cover"
+                    />
+                  ) : (
+                    <div
+                      aria-hidden="true"
+                      className="aspect-square w-full min-h-0 grow grid place-items-center bg-primary-soft/15"
+                    >
+                      <span className="text-4xl font-semibold tracking-wide text-primary-deep/70">
+                        {m.initials ?? m.name.charAt(0)}
+                      </span>
+                    </div>
+                  )}
+                  <div className={"px-5 pt-4" + (m.bio ? "" : " pb-5")}>
                     <h3 className="text-base font-semibold text-primary-deep">{m.name}</h3>
+                    {m.specialty && (
+                      <p className="mt-1 text-sm text-muted-foreground leading-snug">
+                        {m.specialty}
+                      </p>
+                    )}
                   </div>
-                  <div className="px-5 pb-1">
-                    <AccordionTrigger className="text-sm text-primary hover:no-underline">
-                      Повече информация
-                    </AccordionTrigger>
-                    <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
-                      {m.bio}
-                    </AccordionContent>
-                  </div>
+                  {m.bio && (
+                    <div className="px-5 pb-1">
+                      <AccordionTrigger className="text-sm text-primary hover:no-underline">
+                        Повече информация
+                      </AccordionTrigger>
+                      <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
+                        {m.bio}
+                      </AccordionContent>
+                    </div>
+                  )}
                 </AccordionItem>
               ))}
             </Accordion>

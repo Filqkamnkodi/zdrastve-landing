@@ -8,8 +8,10 @@ import nurseTwo from "@/assets/med-feldsher-albena-mirova.webp";
 
 export type TeamMember = {
   name: string;
-  image: string;
-  bio: string;
+  image?: string;
+  specialty?: string;
+  initials?: string;
+  bio?: string;
 };
 
 export const placeholderBio =
@@ -41,5 +43,16 @@ export const team: TeamMember[] = [
     name: "Мед. Фелдшер Албена Мирова", 
     image: nurseTwo, 
     bio: "Родена в гр. Нови Пазар.\n\nПрез 1992 г. завършва Медицински институт гр. Велико Търново.\n\nОт 1992 г. работи в системата на „Спешна помощ“.\n\nОт тогава до днешна дата има провеждани различни курсове и обучения на всеки 5 години в УМБАЛСМ „Н.И.Пирогов“.\n\nОт 2001г. работи в екипа на различни семейни лекари.\n\nОт 2025 г. работи в „Клиника Д-р Чолакови“." 
+  },
+  {
+    name: "Д-р Тереза Стоева Чолакова",
+    specialty:
+      "Специалист по епидемиология, инфекциозни болести и здравен мениджмънт. Ръководител „Дезинфекция, дезинсекция и дератизация“.",
+    initials: "ТЧ",
+  },
+  {
+    name: "Д-р Цветелина Стоянова",
+    specialty: "Специализант по обща медицина",
+    initials: "ЦС",
   },
 ];
