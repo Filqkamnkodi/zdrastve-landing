@@ -1,4 +1,6 @@
-export type FaqItem = { q: string; a: string };
+import type { ReactNode } from "react";
+
+export type FaqItem = { q: string; a: ReactNode };
 export type FaqCategory = { id: string; title: string; items: FaqItem[] };
 
 const placeholder =
