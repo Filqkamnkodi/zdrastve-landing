@@ -87,3 +87,21 @@ export const doctors: Doctor[] = [
 
 export const doctorById = (id: string) => doctors.find((d) => d.id === id);
 export const locationOf = (d: Doctor) => locations[d.locationId];
+
+/** Services selectable in the online booking form (all use the standard slot length). */
+export const bookingServices = [
+  "ОПЛ и Спешна помощ",
+  "Издаване на удостоверения за детски добавки и социални помощи",
+  "Издаване на сертификат за ваксинация срещу КОВИД-19",
+  "Медицинско свидетелство за управление на МПС",
+  "Медицинско свидетелство за брак",
+  "Издаване на медицински документи – амбулаторен лист, рецепти",
+  "Домашни визитации",
+  "Имунизация",
+  "Консултация за пътуване в чужбина",
+  "Друго",
+  "Консултация",
+  "Издаване на мед. документ",
+  "Изписване на лекарства по НЗОК",
+  "Детска консултация",
+] as const;
