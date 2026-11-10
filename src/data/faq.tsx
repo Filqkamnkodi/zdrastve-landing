@@ -1,4 +1,6 @@
-export type FaqItem = { q: string; a: string };
+import type { ReactNode } from "react";
+
+export type FaqItem = { q: string; a: ReactNode };
 export type FaqCategory = { id: string; title: string; items: FaqItem[] };
 
 const placeholder =
@@ -12,6 +14,28 @@ export const faqCategories: FaqCategory[] = [
       { 
         q: "Къде се намира Клиниката?", 
         a: "Локация 1 - гр.Шумен,ул.“Васил Друмев”\u00a0№ 17\n\u00a0Локация 2 - гр.Нови Пазар,ул.“Христо Ботев“ №22, каб.№3 и манипулационна №4" 
+      },
+      {
+        q: "Къде да потърся помощ, ако клиниката не работи в деня и часа, в който имам нужда?",
+        a: (
+          <>
+            <p>Ако имате нужда от медицинска помощ извън работното време на клиниката:</p>
+            <ul className="mt-2 list-disc space-y-1.5 pl-5">
+              <li>В Шумен: посетете кабинета за неотложна помощ в МБАЛ – Шумен.</li>
+              <li>
+                В Нови Пазар: потърсете мед. фелдшер Албена Мирова на тел.{" "}
+                <a
+                  href="tel:+359896600290"
+                  className="text-primary underline-offset-4 hover:underline"
+                >
+                  +359 896 600 290
+                </a>
+                .
+              </li>
+            </ul>
+            <p className="mt-2">При спешно състояние, застрашаващо живота, звънете на 112.</p>
+          </>
+        ),
       },
       { 
         q: "С предварително записване на час ли работите?", 
