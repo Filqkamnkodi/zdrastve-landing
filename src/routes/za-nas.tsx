@@ -162,7 +162,7 @@ function AboutPage() {
                 <AccordionItem
                   key={m.name}
                   value={m.name}
-                  className="card-soft rounded-[1.25rem] overflow-hidden border-b-0 animate-fade-up transition-all hover:-translate-y-1 hover:shadow-soft"
+                  className="card-soft flex flex-col rounded-[1.25rem] overflow-hidden border-b-0 animate-fade-up transition-all hover:-translate-y-1 hover:shadow-soft"
                 >
                   {m.image ? (
                     <img
@@ -176,7 +176,7 @@ function AboutPage() {
                   ) : (
                     <div
                       aria-hidden="true"
-                      className="aspect-square w-full grid place-items-center bg-primary-soft/15"
+                      className="aspect-square w-full min-h-0 flex-1 grid place-items-center bg-primary-soft/15"
                     >
                       <span className="text-4xl font-semibold tracking-wide text-primary-deep/70">
                         {m.initials ?? m.name.charAt(0)}
