@@ -3,7 +3,7 @@ import { CalendarDays, Info, Phone, IdCard, FileText, Baby } from "lucide-react"
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { BookingWidget } from "@/components/booking/BookingWidget";
-import { servicesList } from "@/data/services";
+import { bookingServices } from "@/data/booking";
 import { locations } from "@/data/booking";
 
 const DESC =
@@ -23,12 +23,7 @@ export const Route = createFileRoute("/zapazi-chas")({
   component: AppointmentPage,
 });
 
-const serviceOptions = [
-  ...servicesList.map((s) => s.title),
-  "Имунизация",
-  "Консултация за пътуване в чужбина",
-  "Друго",
-];
+const serviceOptions: string[] = [...bookingServices];
 
 function AppointmentPage() {
   return (

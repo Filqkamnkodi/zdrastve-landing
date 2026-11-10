@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { bookingServices } from "@/data/booking";
 
 export const patientSchema = z.object({
   name: z.string().trim().min(2, "Моля, въведете име и фамилия.").max(100, "Името е твърде дълго."),
@@ -10,7 +11,7 @@ export const patientSchema = z.object({
     .regex(/^[0-9+()\s-]+$/, "Телефонният номер съдържа непозволени символи."),
   email: z.union([z.string().trim().email("Моля, въведете валиден имейл адрес.").max(255), z.literal("")]),
   patient: z.enum(["Възрастен", "Дете"], { errorMap: () => ({ message: "Моля, изберете пациент." }) }),
-  service: z.string().trim().min(1, "Моля, изберете медицинска услуга.").max(120),
+  service: z.string().trim().refine((v) => (bookingServices as readonly string[]).includes(v), "Моля, изберете медицинска услуга."),
   note: z.string().trim().max(300, "Бележката е твърде дълга (до 300 символа).").optional().default(""),
 });
 
