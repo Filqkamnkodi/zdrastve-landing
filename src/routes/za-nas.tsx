@@ -176,7 +176,7 @@ function AboutPage() {
                   ) : (
                     <div
                       aria-hidden="true"
-                      className="aspect-square w-full min-h-0 flex-1 grid place-items-center bg-primary-soft/15"
+                      className="aspect-square w-full min-h-0 grow grid place-items-center bg-primary-soft/15"
                     >
                       <span className="text-4xl font-semibold tracking-wide text-primary-deep/70">
                         {m.initials ?? m.name.charAt(0)}
