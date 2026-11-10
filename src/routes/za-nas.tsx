@@ -183,7 +183,7 @@ function AboutPage() {
                       </span>
                     </div>
                   )}
-                  <div className="px-5 pt-4">
+                  <div className={"px-5 pt-4" + (m.bio ? "" : " pb-5")}>
                     <h3 className="text-base font-semibold text-primary-deep">{m.name}</h3>
                     {m.specialty && (
                       <p className="mt-1 text-sm text-muted-foreground leading-snug">
