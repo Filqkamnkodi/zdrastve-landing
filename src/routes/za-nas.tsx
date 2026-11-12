@@ -171,7 +171,9 @@ function AboutPage() {
                       loading="lazy"
                       width={800}
                       height={800}
-                      className="aspect-square w-full object-cover"
+                      className={
+                        "aspect-square w-full object-cover " + (m.imageClassName ?? "")
+                      }
                     />
                   ) : (
                     <div
