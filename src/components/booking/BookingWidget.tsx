@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent, type
 import { Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { AlertCircle, CalendarCheck, Clock, Loader2, MapPin, RefreshCw, Sparkles, Users, FlaskConical } from "lucide-react";
-import { doctors, doctorById, locationOf, BOOKING_WINDOW_DAYS, type DoctorId } from "@/data/booking";
+import { doctors, doctorById, locationOf, locations, BOOKING_WINDOW_DAYS, type DoctorId } from "@/data/booking";
 import { getAvailability, createBooking, type AvailabilityResult } from "@/lib/booking.functions";
 import { patientSchema } from "@/lib/booking/schema";
 import { addDays, formatLongDate, formatTime, sofiaParts, weekdayOf } from "@/lib/booking/sofia-time";
@@ -363,7 +363,7 @@ function ErrorState({ message, onRetry }: { message: string; onRetry: () => void
         <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" /> {message}
       </p>
       <p className="mt-2 text-muted-foreground">
-        Можете да запазите час и по телефона: Шумен +359 886 011 166, Нови Пазар +359 896 600 290.
+        Можете да запазите час и по телефона: Шумен {locations.shumen.phones.map((phone, index) => <span key={phone}>{index > 0 && ", "}<a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:text-primary-deep">{phone}</a></span>)}, Нови Пазар {locations["novi-pazar"].phones[0]}.
       </p>
       <button type="button" onClick={onRetry} className="btn-ghost mt-4 !py-2 !px-4 text-sm">
         <RefreshCw className="h-4 w-4" /> Опитай отново
