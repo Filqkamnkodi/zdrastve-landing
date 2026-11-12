@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { locations as bookingLocations } from "@/data/booking";
+import { locations as bookingLocations, bookingServices } from "@/data/booking";
+import { BookingWidget } from "@/components/booking/BookingWidget";
 import {
   Stethoscope,
   FileText,
@@ -41,6 +42,8 @@ export const Route = createFileRoute("/")({
         content:
           "Професионална медицинска грижа, модерна апаратура и индивидуален подход към всеки пациент.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: LandingPage,
@@ -120,6 +123,7 @@ function LandingPage() {
       <main>
         <Hero />
         <PatientRegistration />
+        <BookingSection />
         <Services />
         <Locations />
         <WhyUs />
@@ -153,7 +157,7 @@ function Hero() {
             професионализъм, съчетан с лично отношение.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/zapazi-chas" className="btn-primary">
+            <Link to="/" hash="zapazi-chas" hashScrollIntoView={{ behavior: "smooth", block: "start" }} className="btn-primary">
               <CalendarCheck className="h-5 w-5" /> Запазете час
             </Link>
             <a href="#contact" className="btn-ghost">
@@ -290,9 +294,32 @@ function Services() {
   );
 }
 
+function BookingSection() {
+  return (
+    <section id="zapazi-chas" className="scroll-mt-24 bg-surface py-12 lg:py-16">
+      <div className="container-page animate-fade-up">
+        <SectionHeader
+          eyebrow="Онлайн записване"
+          title="Запазете час онлайн"
+          desc="Изберете лекар, ден и свободен час — часът се запазва веднага и получавате потвърждение на екрана."
+        />
+        <div className="mx-auto mt-10 max-w-5xl min-w-0">
+          <BookingWidget serviceOptions={[...bookingServices]} focusOnMount={false} />
+          <div className="mt-5 space-y-2 text-center text-sm text-muted-foreground">
+            <p>При спешни и животозастрашаващи състояния се обадете на 112.</p>
+            <Link to="/" hash="locations" hashScrollIntoView={{ behavior: "smooth", block: "start" }} className="underline-offset-4 hover:text-primary hover:underline">
+              Предпочитате да се обадите? Вижте телефоните
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Locations() {
   return (
-    <section id="locations" className="py-20 lg:py-28 bg-surface">
+    <section id="locations" className="scroll-mt-24 py-20 lg:py-28 bg-surface">
       <div className="container-page">
         <SectionHeader
           eyebrow="Локации"
@@ -438,7 +465,9 @@ function FinalCTA() {
               Запишете час за консултация с нашите специалисти.
             </p>
             <Link
-              to="/zapazi-chas"
+              to="/"
+              hash="zapazi-chas"
+              hashScrollIntoView={{ behavior: "smooth", block: "start" }}
               className="mt-8 inline-flex items-center gap-2 bg-white text-primary-deep px-7 py-3.5 rounded-full font-semibold hover:bg-surface transition shadow-soft"
             >
               <CalendarCheck className="h-5 w-5" /> Запази час

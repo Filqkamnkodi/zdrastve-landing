@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { CalendarCheck, ChevronDown, Menu, X } from "lucide-react";
 import logoUrl from "@/assets/logo.webp";
 
@@ -16,6 +16,7 @@ const navItems = [
 ] as const;
 
 export function SiteHeader() {
+  const isHomepage = useRouterState({ select: (state) => state.location.pathname === "/" });
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -162,7 +163,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <Link to="/zapazi-chas" className="btn-primary hidden md:inline-flex !py-2.5 !px-5 text-sm">
+          <Link to={isHomepage ? "/" : "/zapazi-chas"} hash={isHomepage ? "zapazi-chas" : undefined} hashScrollIntoView={{ behavior: "smooth", block: "start" }} className="btn-primary hidden md:inline-flex !py-2.5 !px-5 text-sm">
             <CalendarCheck className="h-4 w-4" /> Запази час
           </Link>
           <button
@@ -235,7 +236,9 @@ export function SiteHeader() {
             </Link>
           ))}
           <Link
-            to="/zapazi-chas"
+            to={isHomepage ? "/" : "/zapazi-chas"}
+            hash={isHomepage ? "zapazi-chas" : undefined}
+            hashScrollIntoView={{ behavior: "smooth", block: "start" }}
             onClick={() => setOpen(false)}
             className="btn-primary mt-3 mb-2 justify-center"
           >

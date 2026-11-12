@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 type Choice = DoctorId | "any";
 type Picked = { doctorId: DoctorId; start: number };
 
-export function BookingWidget({ serviceOptions }: { serviceOptions: string[] }) {
+export function BookingWidget({ serviceOptions, focusOnMount = true }: { serviceOptions: string[]; focusOnMount?: boolean }) {
   const fetchAvail = useServerFn(getAvailability);
   const book = useServerFn(createBooking);
 
@@ -57,8 +57,10 @@ export function BookingWidget({ serviceOptions }: { serviceOptions: string[] }) 
   }, [load]);
 
   useEffect(() => {
+    // Embedded widgets must not pull the homepage down on its initial load.
+    if (step === 1 && !focusOnMount) return;
     headingRef.current?.focus();
-  }, [step]);
+  }, [step, focusOnMount]);
 
   const visibleIds: DoctorId[] = choice === "any" ? doctors.map((d) => d.id) : [choice];
 

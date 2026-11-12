@@ -14,3 +14,4 @@
 - Google Calendar is called from server functions (`src/lib/booking.functions.ts`) via `jose` + `fetch` with a service account — no `googleapis`, no database — so it runs on any edge/Node runtime.
 - All wall-clock math goes through `src/lib/booking/sofia-time.ts` (Europe/Sofia via Intl), never the host time zone.
 - Without Google env vars, non-production runs in demo mode and the server refuses bookings; production shows an error state instead.
+- The homepage and standalone booking page reuse BookingWidget and bookingServices; embedded instances disable initial autofocus to preserve page and hash scroll positions.
