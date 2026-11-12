@@ -61,7 +61,7 @@ export const BookingConfirmation = forwardRef<HTMLHeadingElement, Props>(functio
 
       <p className="mt-5 flex gap-2 rounded-xl border border-primary/20 bg-primary-soft/10 p-4 text-left text-sm text-muted-foreground">
         <IdCard className="mt-0.5 h-4 w-4 shrink-0 text-primary-deep" />
-        Моля, носете документ за самоличност и наличните медицински документи. Ако не можете да дойдете, обадете се на {loc.phones[0]}.
+        <span>Моля, носете документ за самоличност и наличните медицински документи. Ако не можете да дойдете, обадете се на { (loc.id === "shumen" ? loc.phones : loc.phones.slice(0, 1)).map((phone, index) => <span key={phone}>{index > 0 && ", "}<a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:text-primary-deep">{phone}</a></span>)}.</span>
       </p>
 
       <button type="button" onClick={onNew} className="mt-5 text-sm font-medium text-primary hover:text-primary-deep underline-offset-4 hover:underline">

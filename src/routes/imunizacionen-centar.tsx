@@ -13,6 +13,7 @@ import {
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import heroImg from "@/assets/immunization-hero.jpg";
+import { locations } from "@/data/booking";
 
 export const Route = createFileRoute("/imunizacionen-centar")({
   head: () => ({
@@ -273,13 +274,16 @@ function ImmunizationCenterPage() {
                 Свържете се с нас за повече информация, консултация или записване на преглед.
               </p>
               <div className="mt-7 flex flex-wrap justify-center gap-3">
-                <a href="tel:+359 886 011 166" className="btn-ghost">
+                <a href={`tel:${locations.shumen.phones[0].replace(/\s/g, "")}`} className="btn-ghost">
                   <Phone className="h-4 w-4" /> Свържете се с нас
                 </a>
                 <a href="/#contact" className="btn-ghost">
                   <MapPin className="h-4 w-4" /> Вижте контактите
                 </a>
               </div>
+              <p className="mt-3 text-sm text-primary-foreground/80">
+                {locations.shumen.phones.map((phone, index) => <span key={phone}>{index > 0 && " · "}<a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:underline underline-offset-4">{phone}</a></span>)}
+              </p>
             </div>
           </div>
         </section>

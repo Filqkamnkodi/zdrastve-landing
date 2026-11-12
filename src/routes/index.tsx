@@ -521,10 +521,7 @@ function Footer() {
         <div>
           <h4 className="text-sm font-semibold text-primary-deep">Контакти</h4>
           <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
-            <li className="flex gap-2"><Phone className="h-4 w-4 mt-0.5 text-primary" /> +359 885 646 724 
- +359 886 011 166
-
-</li>
+            <li className="flex gap-2"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-primary" /><span>{[bookingLocations.shumen.phones[1], bookingLocations.shumen.phones[0], ...bookingLocations.shumen.phones.slice(2)].map((phone) => <a key={phone} href={`tel:${phone.replace(/\s/g, "")}`} className="block hover:text-primary-deep">{phone}</a>)}</span></li>
             <li className="flex gap-2"><Mail className="h-4 w-4 mt-0.5 text-primary" /> contact@cholakoviclinic.bg</li>
             <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary" /> ул. "Васил Друмев" 17, Шумен</li>
           </ul>
