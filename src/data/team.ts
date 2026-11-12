@@ -4,11 +4,13 @@ import doctorThird from "@/assets/doctor-simana-ivanova.webp";
 
 import nurseOne from "@/assets/med-sestra-emilia-raynova.webp";
 import nurseTwo from "@/assets/med-feldsher-albena-mirova.webp";
+import secretaryOne from "@/assets/tehnicheski-sekretar-tsvetelina-stoyanova.webp";
 
 
 export type TeamMember = {
   name: string;
   image?: string;
+  imageClassName?: string;
   specialty?: string;
   initials?: string;
   bio?: string;
@@ -53,8 +55,10 @@ export const team: TeamMember[] = [
     initials: "ТЧ",
   },
   {
-    name: "Д-р Цветелина Стоянова",
-    specialty: "Специализант по обща медицина",
-    initials: "ЦС",
+    name: "Цветелина Стоянова",
+    specialty: "Технически секретар",
+    image: secretaryOne,
+    imageClassName: "object-top",
+    bio: "Родена в гр. Нови Пазар.\n\nЗавършва Техникум по химични технологии.\n\nРаботи като технически секретар в „Клиника Д-р Чолакови“, където отговаря за организацията и комуникацията с пациентите.",
   },
 ];
