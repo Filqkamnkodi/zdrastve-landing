@@ -199,7 +199,17 @@ function AboutPage() {
                         Повече информация
                       </AccordionTrigger>
                       <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
-                        {m.bio}
+                        <ul className="space-y-2">
+                          {m.bio.map((line) => (
+                            <li key={line} className="flex items-start gap-3">
+                              <span
+                                aria-hidden="true"
+                                className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
+                              />
+                              <span>{line}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </AccordionContent>
                     </div>
                   )}
