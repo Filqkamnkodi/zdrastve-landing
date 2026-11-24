@@ -2,8 +2,8 @@ import {
   BOOKING_WINDOW_DAYS,
   LEAD_TIME_MINUTES,
   SLOT_MINUTES,
-  locations,
   type Doctor,
+  type LocationId,
 } from "@/data/booking";
 import { addDays, hhmmToMin, minToHhmm, sofiaParts, sofiaToUtc, weekdayOf } from "./sofia-time";
 
@@ -21,29 +21,31 @@ export function overlaps(a: Busy, b: Busy) {
 }
 
 /** Всички свободни часове за лекар в конкретен ден. */
-export function slotsForDay(doctor: Doctor, date: string, busy: Busy[], now: number): Slot[] {
+export function slotsForDay(doctor: Doctor, locationId: LocationId, date: string, busy: Busy[], now: number): Slot[] {
   const { first, last } = bookingWindow(now);
   if (date < first || date > last) return [];
-  const hours = locations[doctor.locationId].hours[weekdayOf(date)];
-  if (!hours) return [];
-  const open = hhmmToMin(hours.open);
-  const close = hhmmToMin(hours.close);
+  const intervals = doctor.schedule[locationId][weekdayOf(date)];
+  if (!intervals) return [];
   const earliest = now + LEAD_TIME_MINUTES * 60_000;
   const out: Slot[] = [];
-  for (let m = open; m + SLOT_MINUTES <= close; m += SLOT_MINUTES) {
-    const start = sofiaToUtc(date, m);
-    const end = sofiaToUtc(date, m + SLOT_MINUTES);
-    if (start < earliest) continue;
-    if (busy.some((b) => overlaps(b, { start, end }))) continue;
-    out.push({ start, end, time: minToHhmm(m) });
+  for (const hours of intervals) {
+    const open = Math.ceil(hhmmToMin(hours.open) / SLOT_MINUTES) * SLOT_MINUTES;
+    const close = hhmmToMin(hours.close);
+    for (let m = open; m + SLOT_MINUTES <= close; m += SLOT_MINUTES) {
+      const start = sofiaToUtc(date, m);
+      const end = sofiaToUtc(date, m + SLOT_MINUTES);
+      if (start < earliest) continue;
+      if (busy.some((b) => overlaps(b, { start, end }))) continue;
+      out.push({ start, end, time: minToHhmm(m) });
+    }
   }
-  return out;
+  return out.filter((slot, index) => out.findIndex((s) => s.start === slot.start) === index).sort((a, b) => a.start - b.start);
 }
 
 /** Проверява дали даден старт е валиден слот (в мрежата, работно време, прозорец). */
-export function isValidSlotStart(doctor: Doctor, start: number, now: number) {
+export function isValidSlotStart(doctor: Doctor, locationId: LocationId, start: number, now: number) {
   const { date } = sofiaParts(start);
-  return slotsForDay(doctor, date, [], now).some((s) => s.start === start);
+  return slotsForDay(doctor, locationId, date, [], now).some((s) => s.start === start);
 }
 
 export function datesInRange(from: string, to: string) {

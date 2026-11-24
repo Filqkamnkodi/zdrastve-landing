@@ -9,6 +9,7 @@ const DAYS = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"];
 const DAYS_LONG = ["неделя", "понеделник", "вторник", "сряда", "четвъртък", "петък", "събота"];
 
 type Props = {
+  doctorIds: DoctorId[];
   month: string; // "YYYY-MM"
   onMonthChange: (m: string) => void;
   minMonth: string;
@@ -27,7 +28,7 @@ const shiftMonth = (m: string, n: number) => {
   return d.toISOString().slice(0, 7);
 };
 
-export function BookingCalendar({ month, onMonthChange, minMonth, maxMonth, selected, onSelect, availability, focusDate, onFocusDate }: Props) {
+export function BookingCalendar({ doctorIds, month, onMonthChange, minMonth, maxMonth, selected, onSelect, availability, focusDate, onFocusDate }: Props) {
   const gridRef = useRef<HTMLDivElement>(null);
   const [y, m] = month.split("-").map(Number);
 
@@ -147,7 +148,7 @@ export function BookingCalendar({ month, onMonthChange, minMonth, maxMonth, sele
       </div>
 
       <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
-        {doctors.map((d) => (
+        {doctors.filter((d) => doctorIds.includes(d.id)).map((d) => (
           <span key={d.id} className="inline-flex items-center gap-1.5">
             <span className="h-2 w-2 rounded-full" style={{ background: d.dot }} aria-hidden="true" />
             {d.shortName}

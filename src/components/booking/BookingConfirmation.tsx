@@ -1,14 +1,15 @@
 import { forwardRef } from "react";
 import { CalendarPlus, CheckCircle2, Download, IdCard, MapPin } from "lucide-react";
-import { doctorById, locationOf, type DoctorId } from "@/data/booking";
+import { doctorById, locations, type DoctorId, type LocationId } from "@/data/booking";
 import { buildIcs, googleCalendarLink, type CalEvent } from "@/lib/booking/ics";
 import { formatLongDate, formatTime } from "@/lib/booking/sofia-time";
 
-type Props = { booking: { doctorId: DoctorId; start: number; end: number }; onNew: () => void };
+type Props = { booking: { doctorId: DoctorId; locationId: LocationId; start: number; end: number }; onNew: () => void };
 
 export const BookingConfirmation = forwardRef<HTMLHeadingElement, Props>(function BookingConfirmation({ booking, onNew }, ref) {
-  const doctor = doctorById(booking.doctorId)!;
-  const loc = locationOf(doctor);
+  const doctor = doctorById(booking.doctorId);
+  const loc = locations[booking.locationId];
+  if (!doctor) return null;
   const ev: CalEvent = {
     title: `Преглед при ${doctor.name}`,
     details: `Клиника Д-р Чолакови\n${loc.address}\nТел.: ${loc.phones.join(", ")}\nНосете документ за самоличност.`,

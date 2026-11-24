@@ -2,8 +2,8 @@ import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent, type
 import { Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { AlertCircle, CalendarCheck, Clock, Loader2, MapPin, RefreshCw, Sparkles, Users, FlaskConical } from "lucide-react";
-import { doctors, doctorById, locationOf, locations, BOOKING_WINDOW_DAYS, type DoctorId } from "@/data/booking";
-import { getAvailability, createBooking, type AvailabilityResult } from "@/lib/booking.functions";
+import { doctors, doctorById, doctorLocationIds, locations, BOOKING_WINDOW_DAYS, type DoctorId, type LocationId } from "@/data/booking";
+import { getAvailability, getBookingDoctors, createBooking, type AvailabilityResult } from "@/lib/booking.functions";
 import { patientSchema } from "@/lib/booking/schema";
 import { addDays, formatLongDate, formatTime, sofiaParts, weekdayOf } from "@/lib/booking/sofia-time";
 import { StepIndicator } from "./StepIndicator";
@@ -14,16 +14,21 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 
 type Choice = DoctorId | "any";
-type Picked = { doctorId: DoctorId; start: number };
+type Picked = { doctorId: DoctorId; locationId: LocationId; start: number };
 
 export function BookingWidget({ serviceOptions, focusOnMount = true }: { serviceOptions: string[]; focusOnMount?: boolean }) {
   const fetchAvail = useServerFn(getAvailability);
   const book = useServerFn(createBooking);
+  const fetchDoctors = useServerFn(getBookingDoctors);
 
   const [step, setStep] = useState<1 | 2 | 3>(1);
+  const [locationId, setLocationId] = useState<LocationId | null>(null);
+  const [picker, setPicker] = useState<Awaited<ReturnType<typeof getBookingDoctors>> | null>(null);
+  const requestId = useRef(0);
   const [choice, setChoice] = useState<Choice>("any");
   const [data, setData] = useState<AvailabilityResult | null>(null);
   const [loading, setLoading] = useState(true);
@@ -33,28 +38,65 @@ export function BookingWidget({ serviceOptions, focusOnMount = true }: { service
   const [focusDate, setFocusDate] = useState<string | null>(null);
   const [picked, setPicked] = useState<Picked | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
-  const [confirmed, setConfirmed] = useState<{ doctorId: DoctorId; start: number; end: number } | null>(null);
+  const [confirmed, setConfirmed] = useState<{ doctorId: DoctorId; locationId: LocationId; start: number; end: number } | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
+  useEffect(() => {
+    let active = true;
+    void fetchDoctors().then((result) => {
+      if (active) setPicker(result);
+    }).catch(() => {
+      if (active) setLoadError("Не успяхме да заредим лекарите. Моля, опитайте отново.");
+    });
+    return () => { active = false; };
+  }, [fetchDoctors]);
+
   const load = useCallback(async () => {
+    const request = ++requestId.current;
+    if (!locationId) { setLoading(false); return; }
     setLoading(true);
     setLoadError(null);
     try {
       const today = sofiaParts(Date.now()).date;
-      const res = await fetchAvail({ data: { from: today, to: addDays(today, BOOKING_WINDOW_DAYS) } });
+      const res = await fetchAvail({ data: {
+        from: today, to: addDays(today, BOOKING_WINDOW_DAYS), locationId,
+        ...(choice === "any" ? {} : { doctorId: choice }),
+      } });
+      if (request !== requestId.current) return;
       setData(res);
       if (res.error) setLoadError(res.error);
       setMonth((m) => m ?? res.from.slice(0, 7));
     } catch {
-      setLoadError("Не успяхме да заредим свободните часове. Моля, опитайте отново.");
+      if (request === requestId.current) setLoadError("Не успяхме да заредим свободните часове. Моля, опитайте отново.");
     } finally {
-      setLoading(false);
+      if (request === requestId.current) setLoading(false);
     }
-  }, [fetchAvail]);
+  }, [fetchAvail, choice, locationId]);
 
   useEffect(() => {
     void load();
+    return () => { requestId.current += 1; };
   }, [load]);
+
+  function resetSelection(nextLocation: LocationId | null) {
+    requestId.current += 1;
+    setLocationId(nextLocation);
+    setDate(null);
+    setFocusDate(null);
+    setPicked(null);
+    setData(null);
+    setMonth(null);
+    setNotice(null);
+    setLoading(Boolean(nextLocation));
+  }
+
+  function selectDoctor(next: Choice) {
+    if (next === choice) return;
+    setChoice(next);
+    const doc = doctorById(next);
+    const ids = doc ? doctorLocationIds(doc) : [];
+    resetSelection(ids.length === 1 ? ids[0] ?? null : null);
+  }
 
   useEffect(() => {
     // Embedded widgets must not pull the homepage down on its initial load.
@@ -62,7 +104,10 @@ export function BookingWidget({ serviceOptions, focusOnMount = true }: { service
     headingRef.current?.focus();
   }, [step, focusOnMount]);
 
-  const visibleIds: DoctorId[] = choice === "any" ? doctors.map((d) => d.id) : [choice];
+  const bookableDoctors = doctors.filter((d) => picker?.doctorIds.includes(d.id));
+  const selectedDoctor = doctorById(choice);
+  const locationOptions = selectedDoctor ? doctorLocationIds(selectedDoctor) : Object.values(locations).map((loc) => loc.id);
+  const visibleIds: DoctorId[] = bookableDoctors.filter((d) => (choice === "any" || d.id === choice) && (!locationId || doctorLocationIds(d).includes(locationId))).map((d) => d.id);
 
   const availability = useMemo(() => {
     const map: Record<string, DoctorId[]> = {};
@@ -72,16 +117,17 @@ export function BookingWidget({ serviceOptions, focusOnMount = true }: { service
     }
     return map;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, choice]);
+  }, [data, choice, picker, locationId]);
 
   const earliest = useMemo(() => {
+    if (!data) return null;
     let best: Picked | null = null;
     for (const day of data?.days ?? [])
       for (const d of day.doctors)
-        if (visibleIds.includes(d.id) && d.slots[0] && (!best || d.slots[0].start < best.start)) best = { doctorId: d.id, start: d.slots[0].start };
+        if (visibleIds.includes(d.id) && d.slots[0] && (!best || d.slots[0].start < best.start)) best = { doctorId: d.id, locationId: data.locationId, start: d.slots[0].start };
     return best;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, choice]);
+  }, [data, choice, picker, locationId]);
 
   // ако избраният ден вече няма часове за избрания лекар — изчистваме
   useEffect(() => {
@@ -92,10 +138,10 @@ export function BookingWidget({ serviceOptions, focusOnMount = true }: { service
     const day = data?.days.find((d) => d.date === date);
     return day ? day.doctors.filter((d) => visibleIds.includes(d.id) && d.slots.length) : [];
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, date, choice]);
+  }, [data, date, choice, picker, locationId]);
 
-  const demo = data?.mode === "demo";
-  const unavailable = data?.mode === "unavailable";
+  const demo = (data?.mode ?? picker?.mode) === "demo";
+  const unavailable = (data?.mode ?? picker?.mode) === "unavailable";
 
   function choose(p: Picked) {
     setPicked(p);
@@ -142,7 +188,7 @@ export function BookingWidget({ serviceOptions, focusOnMount = true }: { service
           <div className="mt-5 grid gap-6 md:grid-cols-[230px_1fr]">
             {/* Doctor picker */}
             <div role="radiogroup" aria-label="Изберете лекар" className="flex flex-col gap-3">
-              <DoctorOption active={choice === "any"} onClick={() => setChoice("any")}>
+              <DoctorOption active={choice === "any"} onClick={() => selectDoctor("any")}>
                 <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary-soft/25 text-primary-deep">
                   <Users className="h-5 w-5" />
                 </span>
@@ -151,25 +197,38 @@ export function BookingWidget({ serviceOptions, focusOnMount = true }: { service
                   <span className="block text-xs text-muted-foreground">При който и да е лекар</span>
                 </span>
               </DoctorOption>
-              {doctors.map((d) => (
-                <DoctorOption key={d.id} active={choice === d.id} onClick={() => setChoice(d.id)}>
+              {bookableDoctors.map((d) => (
+                <DoctorOption key={d.id} active={choice === d.id} onClick={() => selectDoctor(d.id)}>
                   <img src={d.photo} alt="" className="h-12 w-12 shrink-0 rounded-xl object-cover object-top" />
                   <span>
                     <span className="block text-sm font-semibold text-primary-deep">{d.name}</span>
-                    <span className="mt-0.5 inline-flex items-center gap-1 text-xs text-muted-foreground">
-                      <span className="h-2 w-2 rounded-full" style={{ background: d.dot }} aria-hidden="true" />
-                      {locationOf(d).city}
-                    </span>
                   </span>
                 </DoctorOption>
               ))}
             </div>
 
             <div className="min-w-0">
-              {loading && !data ? (
+              {!unavailable && picker && (
+                <div className="mb-5 space-y-2">
+                  <Label htmlFor="booking-location">Локация</Label>
+                  <Select value={locationId ?? ""} onValueChange={(value) => {
+                    if (value === "shumen" || value === "novi-pazar") resetSelection(value);
+                  }}>
+                    <SelectTrigger id="booking-location" aria-label="Локация" className="bg-background">
+                      <SelectValue placeholder="Изберете локация" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {locationOptions.map((id) => <SelectItem key={id} value={id}>{locations[id].city}</SelectItem>)}
+                    </SelectContent>
+                  </Select>
+                </div>
+              )}
+              {unavailable || (loadError && !data?.days.length) ? (
+                <ErrorState message={loadError ?? "Онлайн записването временно не е достъпно."} onRetry={async () => { setPicker(await fetchDoctors()); await load(); }} />
+              ) : !picker || (loading && !data) ? (
                 <CalendarSkeleton />
-              ) : unavailable || (loadError && !data?.days.length) ? (
-                <ErrorState message={loadError ?? "Онлайн записването временно не е достъпно."} onRetry={load} />
+              ) : !locationId ? (
+                <p className="text-sm text-muted-foreground">Изберете локация, за да видите свободните часове.</p>
               ) : (
                 <>
                   {earliest ? (
@@ -183,6 +242,7 @@ export function BookingWidget({ serviceOptions, focusOnMount = true }: { service
                     {month && (
                       <BookingCalendar
                         month={month}
+                        doctorIds={visibleIds}
                         onMonthChange={setMonth}
                         minMonth={minMonth}
                         maxMonth={maxMonth}
@@ -203,9 +263,10 @@ export function BookingWidget({ serviceOptions, focusOnMount = true }: { service
                         </h3>
                         <div className="mt-3 space-y-4">
                           {daySlots.map((ds) => {
-                            const doc = doctorById(ds.id)!;
-                            const loc = locationOf(doc);
-                            const h = loc.hours[weekdayOf(date)];
+                            const doc = doctorById(ds.id);
+                            if (!doc || !locationId) return null;
+                            const loc = locations[locationId];
+                            const intervals = doc.schedule[locationId][weekdayOf(date)];
                             return (
                               <div key={ds.id} className="rounded-2xl border border-border/60 p-4">
                                 <div className="flex items-center gap-3">
@@ -214,7 +275,7 @@ export function BookingWidget({ serviceOptions, focusOnMount = true }: { service
                                     <p className="font-semibold text-primary-deep">{doc.name}</p>
                                     <p className="flex flex-wrap gap-x-3 text-xs text-muted-foreground">
                                       <span className="inline-flex items-center gap-1"><MapPin className="h-3 w-3" />{loc.city}</span>
-                                      {h && <span className="inline-flex items-center gap-1"><Clock className="h-3 w-3" />{h.open} – {h.close}</span>}
+                                      {intervals && <span className="inline-flex items-center gap-1"><Clock className="h-3 w-3" />{intervals.map((h) => `${h.open} – ${h.close}`).join(", ")}</span>}
                                     </p>
                                   </div>
                                 </div>
@@ -227,7 +288,7 @@ export function BookingWidget({ serviceOptions, focusOnMount = true }: { service
                                         type="button"
                                         aria-pressed={sel}
                                         aria-label={`${s.time} ч. при ${doc.name}`}
-                                        onClick={() => choose({ doctorId: ds.id, start: s.start })}
+                                        onClick={() => choose({ doctorId: ds.id, locationId, start: s.start })}
                                         className={cn(
                                           "rounded-lg border px-2 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                                           sel ? "border-primary-deep bg-primary-deep text-primary-foreground" : "border-primary/25 text-primary-deep hover:bg-primary-soft/25",
@@ -263,7 +324,7 @@ export function BookingWidget({ serviceOptions, focusOnMount = true }: { service
           serviceOptions={serviceOptions}
           onBack={() => setStep(1)}
           onSubmit={async (values) => {
-            const res = await book({ data: { ...values, doctorId: picked.doctorId, start: picked.start } });
+            const res = await book({ data: { ...values, doctorId: picked.doctorId, locationId: picked.locationId, start: picked.start } });
             if (res.ok) {
               setConfirmed(res.booking);
               setStep(3);
@@ -315,7 +376,8 @@ function DoctorOption({ active, onClick, children }: { active: boolean; onClick:
 }
 
 function EarliestCard({ picked, onPick }: { picked: Picked; onPick: () => void }) {
-  const doc = doctorById(picked.doctorId)!;
+  const doc = doctorById(picked.doctorId);
+  if (!doc) return null;
   return (
     <div
       className="flex flex-col sm:flex-row sm:items-center gap-4 rounded-2xl border border-primary/30 p-4"
@@ -330,7 +392,7 @@ function EarliestCard({ picked, onPick }: { picked: Picked; onPick: () => void }
           <p className="font-semibold capitalize text-primary-deep">
             {formatLongDate(picked.start)}, {formatTime(picked.start)} ч.
           </p>
-          <p className="text-muted-foreground">{doc.name} · {locationOf(doc).city}</p>
+          <p className="text-muted-foreground">{doc.name} · {locations[picked.locationId].city}</p>
         </div>
       </div>
       <button type="button" onClick={onPick} className="btn-primary !py-2 !px-5 text-sm justify-center">
@@ -389,8 +451,8 @@ function PatientStep({
   onBack: () => void;
   onSubmit: (v: PatientValues) => Promise<string | null>;
 }) {
-  const doc = doctorById(picked.doctorId)!;
-  const loc = locationOf(doc);
+  const doc = doctorById(picked.doctorId);
+  const loc = locations[picked.locationId];
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [patient, setPatient] = useState<"" | "Възрастен" | "Дете">("");
   const [consent, setConsent] = useState(false);
@@ -426,6 +488,8 @@ function PatientStep({
       setSubmitting(false);
     }
   }
+
+  if (!doc) return null;
 
   return (
     <div className="mt-6">

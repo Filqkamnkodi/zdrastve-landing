@@ -5,7 +5,7 @@ import { sofiaToUtc, weekdayOf } from "./sofia-time";
 /** Примерна заетост за демо режим (детерминистична, без случайни числа). */
 export function demoBusy(doctorId: DoctorId, from: string, to: string): Busy[] {
   const busy: Busy[] = [];
-  const shift = doctorId === "cholakov-senior" ? 0 : 1;
+  const shift = doctorId === "cholakov-senior" ? 0 : doctorId === "cholakov-junior" ? 1 : 2;
   for (const date of datesInRange(from, to)) {
     const day = Number(date.slice(8, 10));
     const wd = weekdayOf(date);

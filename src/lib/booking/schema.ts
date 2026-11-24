@@ -1,5 +1,8 @@
 import { z } from "zod";
-import { bookingServices } from "@/data/booking";
+import { bookingServices, doctorById, type DoctorId } from "@/data/booking";
+
+export const doctorIdSchema = z.custom<DoctorId>((value) => typeof value === "string" && Boolean(doctorById(value)));
+export const locationIdSchema = z.enum(["shumen", "novi-pazar"]);
 
 export const patientSchema = z.object({
   name: z.string().trim().min(2, "Моля, въведете име и фамилия.").max(100, "Името е твърде дълго."),
@@ -16,7 +19,8 @@ export const patientSchema = z.object({
 });
 
 export const bookingSchema = patientSchema.extend({
-  doctorId: z.enum(["cholakov-senior", "cholakov-junior"]),
+  doctorId: doctorIdSchema,
+  locationId: locationIdSchema,
   start: z.number().int().positive(),
   website: z.string().max(200).optional().default(""), // honeypot
 });
