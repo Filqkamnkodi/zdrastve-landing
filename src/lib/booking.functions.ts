@@ -79,14 +79,18 @@ export const createBooking = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => d)
   .handler(async ({ data }): Promise<BookingResult> => {
     const parsed = bookingSchema.safeParse(data);
-    if (!parsed.success) return { ok: false, code: "INVALID", message: "Моля, проверете въведените данни." };
+    if (!parsed.success) {
+      console.error("createBooking: schema invalid", parsed.error.issues);
+      return { ok: false, code: "INVALID", message: "Моля, проверете въведените данни." };
+    }
     const input = parsed.data;
     const { mode, cals, doctorIds } = bookingConfiguration(process.env);
     if (mode === "demo") return { ok: false, code: "DEMO", message: "Демо режим — записването е изключено." };
     if (mode === "unavailable") return { ok: false, code: "UNAVAILABLE", message: "Онлайн записването временно не е достъпно. Моля, обадете се по телефона." };
 
-    // honeypot: тихо отказваме
-    if (input.website) return { ok: false, code: "INVALID", message: "Моля, проверете въведените данни." };
+    // honeypot: не блокираме реални пациенти — само отбелязваме подозиран бот
+    const honeypotFilled = Boolean(input.website);
+    if (honeypotFilled) console.warn("createBooking: honeypot filled", { doctorId: input.doctorId, locationId: input.locationId, start: input.start });
 
     const { getRequestHeader } = await import("@tanstack/react-start/server");
     const ip = (getRequestHeader("x-forwarded-for") ?? "").split(",")[0].trim() || getRequestHeader("x-real-ip") || "unknown";
@@ -115,6 +119,7 @@ export const createBooking = createServerFn({ method: "POST" })
         return { ok: false, code: "SLOT_TAKEN", message: "Този час току-що беше зает. Моля, изберете друг." };
       }
       const description = [
+        honeypotFilled ? "⚠️ honeypot попълнен (възможен бот)" : null,
         `Локация: ${loc.city}`,
         `Телефон: ${input.phone}`,
         input.email ? `Имейл: ${input.email}` : null,

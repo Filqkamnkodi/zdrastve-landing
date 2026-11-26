@@ -480,7 +480,7 @@ function PatientStep({
     setSubmitting(true);
     setFormError(null);
     try {
-      const err = await onSubmit({ ...parsed.data, note: parsed.data.note ?? "", website: String(fd.get("website") ?? "") });
+      const err = await onSubmit({ ...parsed.data, note: parsed.data.note ?? "", website: String(fd.get("hp_extra") ?? "") });
       if (err) setFormError(err);
     } catch {
       setFormError("Възникна проблем при записването. Моля, опитайте отново или се обадете по телефона.");
@@ -512,8 +512,18 @@ function PatientStep({
       <form onSubmit={handle} noValidate className="mt-6 space-y-4">
         {/* honeypot */}
         <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
-          <label htmlFor="website">Уебсайт</label>
-          <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+          <label htmlFor="hp_extra">Оставете празно</label>
+          <input
+            id="hp_extra"
+            name="hp_extra"
+            type="text"
+            tabIndex={-1}
+            autoComplete="new-password"
+            data-1p-ignore
+            data-lpignore="true"
+            data-bwignore
+            data-form-type="other"
+          />
         </div>
 
         <div className="grid sm:grid-cols-2 gap-4">

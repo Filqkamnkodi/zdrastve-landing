@@ -78,6 +78,15 @@ describe("location-aware server booking", () => {
     expect(await createBooking({ data: { ...patient, doctorId: "cholakov-junior", locationId: "shumen", start } })).toMatchObject({ ok: false, code: "SLOT_TAKEN" });
     expect(insertEvent).not.toHaveBeenCalled();
   });
+  it("books normally when the honeypot is filled, tagging the event instead of blocking the patient", async () => {
+    const start = sofiaToUtc("2026-11-02", 14 * 60);
+    const result = await createBooking({ data: { ...patient, doctorId: "cholakov-junior", locationId: "shumen", start, website: "http://spam.example" } });
+    expect(result).toEqual({ ok: true, booking: { doctorId: "cholakov-junior", locationId: "shumen", start, end: start + 30 * 60_000 } });
+    const description = String(vi.mocked(insertEvent).mock.calls[0]?.[2]?.description ?? "");
+    expect(description).toContain("⚠️ honeypot попълнен (възможен бот)");
+    expect(description).toContain("Локация: Шумен");
+    expect(description).toContain("Телефон: +359000000000");
+  });
   it("rejects booking an unconfigured doctor without disabling the other doctors", async () => {
     vi.stubEnv("GOOGLE_CALENDAR_ID_SIMANA", "");
     expect(await getBookingDoctors()).toEqual({ mode: "live", doctorIds: ["cholakov-senior", "cholakov-junior"] });
