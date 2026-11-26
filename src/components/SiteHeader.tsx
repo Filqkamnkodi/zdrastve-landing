@@ -98,9 +98,9 @@ export function SiteHeader() {
           <img
             src={logoUrl}
             alt="Клиника Д-р Чолакови"
-            width={82}
-            height={82}
-            className="-my-[9px] -mr-3.5 h-[82px] w-[82px] object-contain"
+            width={72}
+            height={72}
+            className="-my-1 -mr-3 h-[72px] w-[72px] object-contain"
           />
           <span className="font-display text-base font-bold tracking-tight text-primary-deep leading-[1.05] whitespace-pre-line">
             Клиника{"\n"}Д-р Чолакови
