@@ -142,19 +142,27 @@ function TermsPage() {
                 </Section>
 
                 <Section id="operator" number="2" title="Данни за оператора на сайта">
-                  <p>
-                    По-долу са посочени данните за оператора на уебсайта. Моля, попълнете
-                    информацията преди публикуване:
-                  </p>
-                  <PlaceholderList
-                    items={[
-                      "Наименование: [Добавете юридическо лице]",
-                      "ЕИК/Булстат: [Добавете ЕИК/Булстат]",
-                      "Адрес: [Добавете адрес]",
-                      "Телефон: [Добавете телефон]",
-                      "Имейл: [Добавете имейл]",
-                    ]}
-                  />
+                  <p>Операторът на уебсайта е:</p>
+                  <ul className="list-disc pl-5 space-y-2">
+                    <li>
+                      <span className="font-medium text-primary-deep">Наименование:</span> ЕТ
+                      „АПИМП-ИП-МИЛЕН ЧОЛАКОВ-КЛИНИКА Д-Р ЧОЛАКОВИ“
+                    </li>
+                    <li>
+                      <span className="font-medium text-primary-deep">ЕИК:</span> BG127557099
+                    </li>
+                    <li>
+                      <span className="font-medium text-primary-deep">Адрес:</span> гр. Шумен, ул.
+                      „Васил Друмев“ № 17
+                    </li>
+                    <li>
+                      <span className="font-medium text-primary-deep">Телефон:</span> 054 876 979
+                    </li>
+                    <li>
+                      <span className="font-medium text-primary-deep">Имейл:</span>{" "}
+                      contact@cholakoviclinic.bg
+                    </li>
+                  </ul>
                 </Section>
 
                 <Section id="purpose" number="3" title="Предназначение на сайта">
@@ -378,15 +386,15 @@ function TermsPage() {
                   <div className="mt-5 grid sm:grid-cols-2 gap-4 text-sm text-muted-foreground">
                     <div className="flex items-start gap-3">
                       <Mail className="h-4 w-4 mt-0.5 text-primary shrink-0" />
-                      <span>Имейл: [добавете имейл]</span>
+                      <span>Имейл: contact@cholakoviclinic.bg</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <Phone className="h-4 w-4 mt-0.5 text-primary shrink-0" />
-                      <span>Телефон: [добавете телефон]</span>
+                      <span>Телефон: 054 876 979</span>
                     </div>
                     <div className="flex items-start gap-3 sm:col-span-2">
                       <MapPin className="h-4 w-4 mt-0.5 text-primary shrink-0" />
-                      <span>Адрес: [добавете адрес]</span>
+                      <span>Адрес: гр. Шумен, ул. „Васил Друмев“ № 17</span>
                     </div>
                   </div>
                   <div className="mt-6">

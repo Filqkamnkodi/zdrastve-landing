@@ -530,8 +530,8 @@ function Footer() {
         <div>
           <h4 className="text-sm font-semibold text-primary-deep">Правна информация</h4>
           <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
-            <li><a href="#" className="hover:text-primary-deep">Политика за поверителност</a></li>
-            <li><a href="#" className="hover:text-primary-deep">Общи условия</a></li>
+            <li><Link to="/politika-za-poveritelnost" className="hover:text-primary-deep">Политика за поверителност</Link></li>
+            <li><Link to="/obshti-usloviya" className="hover:text-primary-deep">Общи условия</Link></li>
           </ul>
         </div>
 
