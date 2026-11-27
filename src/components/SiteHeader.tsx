@@ -100,7 +100,7 @@ export function SiteHeader() {
             alt="Клиника Д-р Чолакови"
             width={72}
             height={72}
-            className="-my-1 -mr-3 h-[72px] w-[72px] object-contain"
+            className="-my-1 -mr-1.5 h-[72px] w-[72px] object-contain"
           />
           <span className="font-display text-base font-bold tracking-tight text-primary-deep leading-[1.05] whitespace-pre-line">
             Клиника{"\n"}Д-р Чолакови
