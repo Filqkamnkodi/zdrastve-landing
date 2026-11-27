@@ -1,3 +1,10 @@
+# Meta Pixel setup
+- [x] Add regional consent banner with separate analytics/advertising choices, opt-outs and permanent settings links.
+- [x] Verify five consent-rule tests and desktop/mobile acceptance, refusal, separate choices, persistence and withdrawal; no Meta requests sent.
+- [ ] Install eligible Meta Pixel PageView tracking after Events Manager dataset restrictions are supplied and assessed.
+- [ ] Verify permitted Meta transmission and provider receipt after eligible installation and deployment.
+- Requested pixel: `1198253166068338`; PageView only, no matching or booking events. Regional banner chosen; Meta installation remains held pending the open dataset-restrictions question.
+
 # Homepage booking
 - [x] Add the third doctor, location schedules, availability filtering and location-aware booking confirmation.
 - [x] Test schedule rules, isolated calendar integration and desktop/mobile booking flows; all 75 tests pass.

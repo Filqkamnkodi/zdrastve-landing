@@ -9,6 +9,10 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
+## Visitor consent
+- Keep regional consent choices in `src/lib/consent.ts` and render one shared banner in the root; separate analytics and advertising choices so neither grants the other.
+- Do not install or enable Meta tracking until the clinic dataset restrictions and permitted data are assessed; consent does not permit sensitive health data sharing.
+
 ## Online booking
 - Booking config (doctors, locations, hours, slot rules) lives only in `src/data/booking.ts`; pages read hours/phones from it so they never drift.
 - Google Calendar is called from server functions (`src/lib/booking.functions.ts`) via `jose` + `fetch` with a service account — no `googleapis`, no database — so it runs on any edge/Node runtime.
